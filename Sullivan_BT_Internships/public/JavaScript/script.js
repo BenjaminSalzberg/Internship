@@ -22,12 +22,13 @@ $("#Form").submit(function(event) {
 	    	return;
 	    }
 
-	    //establisher batabase connection to 
+	    //establisher batabase connection to the year/company name
 		var db = firebase.database().ref('/2017' + json.CompanyName);
+		//send the json to database, then disable the inputs, and alert thank you message
 		db.set(json).then(function() {
-			$("input").attr('disable', true);
+			$("input").attr('disabled', true);
 			alert("Thank you for submitting!");
-		})
+		}) //if there is an error in writing to the database, this function is run:
 		.catch(function(e) {
 			alert("We are sorry, your submission could not be saved right now.");console.log("Firebase error:\n" + e)
 		});
