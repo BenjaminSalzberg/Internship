@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>BT Internships</title>
+		<meta name="description" content="Internships for Beth Tfiloh">
+		<meta name="author" content="Benjamin Salzberg">
+		<link rel="stylesheet" href="CSS/Primary.css">
+		<link href="Images/favicon.ico" rel="icon" />
+		
+		
+	</head>
+	<body>
+		<div id="Sidebar">
+			<img id="BTLogo" src="Images/BTLogo.png" alt="Beth Tfiloh Dahan Community Day School">
+		</div>
+		<div id="Main">
+
+
+
+			<form id="Form" title="" method="post">
+				Company Name:
+				<input type="text" name="CompanyName" id="CompanyName" value="" required="true"><br><hr>
+				<h3>Contact Information:</h3>
+				Address
+				<input type="text" name="Address" id="Address"value=""><br><hr>
+				Phone Number
+				<input type="text" name="PhoneNumber" id="PhoneNumber" value=""><br><hr>
+				Fax Number
+				<input type="text" name="FaxNumber" id="FaxNumber" value=""><br><hr>
+				E-Mail
+				<input type="email" name="EMail" id="EMail" value=""><br><hr>
+				Contact Person
+				<input type="text" name="ContactPerson" id="ContactPerson" value=""><br><hr>
+				Description of service/product provided or made at your site<br><br>
+				<textarea name="ServiceProductProvided" id="ServiceProductProvided" rows="3" cols="20" value=""></textarea><br><br><br><hr>
+				Should the student have a particular skill/interest<br><hr>
+				<input type="radio" name="Skill" id="SkillYes" value="Yes">Yes<br><br>
+				<input type="radio" name="Skill" id="SkillNo" value="No" checked>No<br><hr>
+				If yes, please describe
+				<textarea name="SkillDescription" id="SkillDescription" rows="3" cols="20" value=""></textarea><br><br><br><hr>
+				What responsibilities or tasks will the student undertake
+				<textarea name="Responsibilities1" id="Responsibilities1" rows="2" cols="20" value=""></textarea><br><br><br>
+				<textarea name="Responsibilities2" id="Responsibilities2" rows="2" cols="20" value=""></textarea><br><br><br>
+				<textarea name="Responsibilities3" id="Responsibilities3" rows="2" cols="20" value=""></textarea><br><br><br>
+				<textarea name="Responsibilities4" id="Responsibilities4" rows="2" cols="20" value=""></textarea><br><br><hr>
+				Hours of work avialable to student
+				<input type="number" name="Hours" id="Hours" min="0" max="255"><br><hr>
+				Dress Code for student
+				<input type="text" name="DressCode" id="DressCode" value=""><br><hr>
+				Number of students you are willing to mentor
+				<input type="number" name="NumberMentor" id="NumberMentor" min="0" max="255"><br><hr>
+				<br><input id = "Submit" type="submit" value="Submit">
+			</form>
+			<br><br>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" defer></script>
+		<script src="JavaScript/InformationTransfer.js" defer></script>
+		<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js" defer></script>
+		<script type="text/javascript" src="JavaScript/script.js" defer></script>
+	</body>	
+</html>
+

@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "$student": {
+      ".read": "!data.exists() || auth.uid === 'LiPOM2JIgaWPQ9cNf4QbtVK6p842'",
+      ".write": "!data.exists() || auth.uid === 'LiPOM2JIgaWPQ9cNf4QbtVK6p842'"
+    }
+  }
+}
