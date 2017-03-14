@@ -53,8 +53,12 @@
 				<form class="row">
 					<h4>Please enter the following information:</h4>
 
-					<h5>Company Name:</h5>
-					<input type="text" name="CompanyName" id="CompanyName" value="" required="true"><br><hr>
+					<div classs="row">
+						<div class="input-field col s12">
+							<input type="text" name="CompanyName" id="CompanyName" value="" required="true">
+							<label for="CompanyName">Company Name</label>
+						</div>
+					</div>
 
 					<h5>Contact Information:</h5>
 					Address
@@ -92,9 +96,9 @@
 		</main>
 
 		<script src="/bower_components/jquery/dist/jquery.min.js" defer></script>
-		<script src="/bower_components/jquery/firebase/firebsae.min.js" defer></script>
+		<script src="/bower_components/firebase/firebase.min.js" defer></script>
 		<script type="text/javascript" src="JavaScript/script.js" defer></script>
-		<script src="/bower_components/jquery/materialize/dist/js/materialize.min.js" defer></script>
+		<script src="/bower_components/materialize/dist/js/materialize.min.js" defer></script>
 	</body>	
 </html>
 
