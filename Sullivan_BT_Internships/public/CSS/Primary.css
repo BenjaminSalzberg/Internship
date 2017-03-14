@@ -1,35 +1,46 @@
-body
-{
+body {
 	margin: 0;
-	background-color: beige;
+	background: linear-gradient(#436ba0, #334e73);
 }
-#Main
-{
-	float: right;
-	clear: right;
+
+nav ul.side-nav {
+	background-color: #fcfcfc;
+	color: #383838;
+}
+
+main {
 	margin-top: 50px;
-	margin-left: 20%;
-	margin-right: 40%;
-	color: blue;
+	padding-left: 300px;
 }
-input,textarea
-{
+
+form {
+	background-color: #eee;
+	padding: 5px 12.5px;
+	border-radius: 2px;
+}
+
+#logo-top {
+	margin-top: 32px;
+}
+
+#logo-top div, #top-logo img {
+	height: 125px;
+	width: 125px;
+	margin: auto;
+}
+
+#logo-top div {
+	margin-bottom: 14px;
+}
+
+#logo-top h5 {
+	margin: 0;
+	/*font-family: 'Times New Roman', serif;*/
+	font-weight: 700;
+	text-align: center;
+}
+
+input,textarea {
 	float: right;
 	clear: right;
-}
-#BTLogo
-{
-	width: 150px;
-	height: 150px;
-	margin-top: 5%;
-}
-#Sidebar
-{
-	height: 100%;
-	width: 10%;
-	position: fixed;
-	text-align: center;
-	float: left;
-	clear: left;
-	margin-left: 10px;
 }

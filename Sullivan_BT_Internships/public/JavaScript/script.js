@@ -1,31 +1,33 @@
 // Initialize Firebase
-var config = {
+const CONFIG = {
 	apiKey: "AIzaSyCH9Ip83AVAahbvt7hbVA9OSEbnjnBHNbE",
 	authDomain: "internships-1b609.firebaseapp.com",
 	databaseURL: "https://internships-1b609.firebaseio.com",
 	storageBucket: "internships-1b609.appspot.com",
 	messagingSenderId: "820212679716"
 };
-firebase.initializeApp(config);
+firebase.initializeApp(CONFIG);
 
-
-$("#Form").submit(function(event) {
+$("form").submit(function(event) {
 		event.preventDefault();
-		var form = this;
-		var json = ConvertFormToJSON(form);
-	    if (!validate(json)) {
+		let form = this;
+		const JSON = ConvertFormToJSON(form);
+
+		//validate (check validate() below)
+	    if (!validate(JSON)) {
 	    	alert("Please enter either an email, a phone number, or a fax number.");
 	    }
 
-	    if (!json.CompanyName) {
+	    //check that a company name was entered
+	    if (!JSON.CompanyName) {
 	    	alert("Please enter your company's name.");
 	    	return;
 	    }
 
 	    //establisher batabase connection to the year/company name
-		var db = firebase.database().ref('/2017' + json.CompanyName);
+		var db = firebase.database().ref('/2017' + JSON.CompanyName);
 		//send the json to database, then disable the inputs, and alert thank you message
-		db.set(json).then(function() {
+		db.set(JSON).then(function() {
 			$("input").attr('disabled', true);
 			alert("Thank you for submitting!");
 		}) //if there is an error in writing to the database, this function is run:
@@ -37,6 +39,19 @@ $("#Form").submit(function(event) {
 		
 });
 
+//makes the form data a json object, witht the keys being the element names, and the values beingt he element values
+function ConvertFormToJSON(form){
+	let array = jQuery(form).serializeArray();
+	let json = {};
+	
+	jQuery.each(array, function() {
+		json[this.name] = this.value || '';
+	});
+	
+	return json;
+};
+
+//checks that either the email, phone#, or fax# have been filled in
 function validate (json) {
 	if (!json.EMail && !json.PhoneNumber && !json.FaxNumber) {
 		return false;

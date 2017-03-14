@@ -3,62 +3,98 @@
 	<head>
 		<meta charset="utf-8">
 		<title>BT Internships</title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-touch-fullscreen" content="yes">
+
 		<meta name="description" content="Internships for Beth Tfiloh">
 		<meta name="author" content="Benjamin Salzberg">
-		<link rel="stylesheet" href="CSS/Primary.css">
-		<link href="Images/favicon.ico" rel="icon" />
 		
 		
+
+		<link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/images/favicons/manifest.json">
+		<link rel="shortcut icon" href="/images/favicons/favicon.ico">
+		<meta name="msapplication-config" content="/images/favicons/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+
+		<meta property="og:title" content="BT Internships"/>
+		<meta property="og:type" content="website"/>
+		<!-- <meta property="og:description" content="">
+		<meta property="og:url" content=""/>
+		<meta property="og:image" content=""/> -->
+		
+		<link rel="stylesheet" href="/bower_components/materialize/dist/css/materialize.min.css" async>
+		<link rel="stylesheet" href="CSS/Primary.css" async>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<body>
-		<div id="Sidebar">
-			<img id="BTLogo" src="Images/BTLogo.png" alt="Beth Tfiloh Dahan Community Day School">
-		</div>
-		<div id="Main">
+		<header>
+			<nav class="hide-on-large-only">
+				
+			</nav>
+
+			<ul class="side-nav fixed hide-on-med-and-below">
+				<li id="logo-top">
+					<div>
+						<img src="Images/bt_logo_circle.png" alt="Beth Tfiloh Dahan Community School" width="125" height="125">
+					</div>
+					<h5>BT Internships</h5>
+				</li>
+			</ul>
+		</header>
 
 
+		<main>
+			<div class="container" id="wrap">
+				<!--<form class="col s12 m10 l9 offset-m1 offset-l1 row">-->
+				<form class="row">
+					<h4>Please enter the following information:</h4>
 
-			<form id="Form" title="" method="post">
-				Company Name:
-				<input type="text" name="CompanyName" id="CompanyName" value="" required="true"><br><hr>
-				<h3>Contact Information:</h3>
-				Address
-				<input type="text" name="Address" id="Address"value=""><br><hr>
-				Phone Number
-				<input type="text" name="PhoneNumber" id="PhoneNumber" value=""><br><hr>
-				Fax Number
-				<input type="text" name="FaxNumber" id="FaxNumber" value=""><br><hr>
-				E-Mail
-				<input type="email" name="EMail" id="EMail" value=""><br><hr>
-				Contact Person
-				<input type="text" name="ContactPerson" id="ContactPerson" value=""><br><hr>
-				Description of service/product provided or made at your site<br><br>
-				<textarea name="ServiceProductProvided" id="ServiceProductProvided" rows="3" cols="20" value=""></textarea><br><br><br><hr>
-				Should the student have a particular skill/interest<br><hr>
-				<input type="radio" name="Skill" id="SkillYes" value="Yes">Yes<br><br>
-				<input type="radio" name="Skill" id="SkillNo" value="No" checked>No<br><hr>
-				If yes, please describe
-				<textarea name="SkillDescription" id="SkillDescription" rows="3" cols="20" value=""></textarea><br><br><br><hr>
-				What responsibilities or tasks will the student undertake
-				<textarea name="Responsibilities1" id="Responsibilities1" rows="2" cols="20" value=""></textarea><br><br><br>
-				<textarea name="Responsibilities2" id="Responsibilities2" rows="2" cols="20" value=""></textarea><br><br><br>
-				<textarea name="Responsibilities3" id="Responsibilities3" rows="2" cols="20" value=""></textarea><br><br><br>
-				<textarea name="Responsibilities4" id="Responsibilities4" rows="2" cols="20" value=""></textarea><br><br><hr>
-				Hours of work avialable to student
-				<input type="number" name="Hours" id="Hours" min="0" max="255"><br><hr>
-				Dress Code for student
-				<input type="text" name="DressCode" id="DressCode" value=""><br><hr>
-				Number of students you are willing to mentor
-				<input type="number" name="NumberMentor" id="NumberMentor" min="0" max="255"><br><hr>
-				<br><input id = "Submit" type="submit" value="Submit">
-			</form>
-			<br><br>
-		</div>
+					<h5>Company Name:</h5>
+					<input type="text" name="CompanyName" id="CompanyName" value="" required="true"><br><hr>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" defer></script>
-		<script src="JavaScript/InformationTransfer.js" defer></script>
-		<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js" defer></script>
+					<h5>Contact Information:</h5>
+					Address
+					<input type="text" name="Address" id="Address"value="">
+
+					Phone Number
+					<input type="text" name="PhoneNumber" id="PhoneNumber" value="">
+					Fax Number
+					<input type="text" name="FaxNumber" id="FaxNumber" value="">
+					E-Mail
+					<input type="email" name="EMail" id="EMail" value="">
+					Contact Person
+					<input type="text" name="ContactPerson" id="ContactPerson" value="">
+					Description of service/product provided or made at your site<br><br>
+					<textarea name="ServiceProductProvided" id="ServiceProductProvided" rows="3" cols="20" value=""></textarea><br><br>
+					Should the student have a particular skill/interest<br><hr>
+					<input type="radio" name="Skill" id="SkillYes" value="Yes">Yes<br><br>
+					<input type="radio" name="Skill" id="SkillNo" value="No" checked>No
+					If yes, please describe
+					<textarea name="SkillDescription" id="SkillDescription" rows="3" cols="20" value=""></textarea><br><br>
+					What responsibilities or tasks will the student undertake
+					<textarea name="Responsibilities1" id="Responsibilities1" rows="2" cols="20" value=""></textarea><br><br><br>
+					<textarea name="Responsibilities2" id="Responsibilities2" rows="2" cols="20" value=""></textarea><br><br><br>
+					<textarea name="Responsibilities3" id="Responsibilities3" rows="2" cols="20" value=""></textarea><br><br><br>
+					<textarea name="Responsibilities4" id="Responsibilities4" rows="2" cols="20" value=""></textarea><br><br><hr>
+					Hours of work avialable to student
+					<input type="number" name="Hours" id="Hours" min="0" max="255"><br><hr>
+					Dress Code for student
+					<input type="text" name="DressCode" id="DressCode" value=""><br><hr>
+					Number of students you are willing to mentor
+					<input type="number" name="NumberMentor" id="NumberMentor" min="0" max="255"><br><hr>
+					<br><input id = "Submit" type="submit" value="Submit">
+				</form>
+			</div>
+		</main>
+
+		<script src="/bower_components/jquery/dist/jquery.min.js" defer></script>
+		<script src="/bower_components/jquery/firebase/firebsae.min.js" defer></script>
 		<script type="text/javascript" src="JavaScript/script.js" defer></script>
+		<script src="/bower_components/jquery/materialize/dist/js/materialize.min.js" defer></script>
 	</body>	
 </html>
 
