@@ -7,8 +7,10 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-touch-fullscreen" content="yes">
 
-		<meta name="description" content="Internships for Beth Tfiloh">
-		<meta name="author" content="Benjamin Salzberg">
+		<meta name="Description" content="Internships for Beth Tfiloh">
+		<meta name="Author" content="Benjamin Salzberg">
+		<meta name="Editor/Collaborator" content="Shalom Abrahams">
+		<meta name="Editor/Collaborator" content="Chrisovalantis Allulis">
 		
 		
 
@@ -43,6 +45,21 @@
 					</div>
 					<h5>BT Internships</h5>
 				</li>
+				<li id="Link_To_Input">
+					<a href="/index.html">
+						<h5>Home</h5>
+					</a>
+				</li>
+				<li id="Link_to_login">
+					<a href="/Login_page.html">
+						<h5>Login/Logout</h5>
+					</a>
+				</li>
+				<li id="View Data">
+					<a href="/Download_Data.html">
+						<h5>View Information</h5>
+					</a>
+				</li>
 			</ul>
 		</header>
 
@@ -54,7 +71,7 @@
 					<h4>Please enter the following information:</h4>
 					<h6 class="red-text text-darken-2">* Required</h6>
 
-					<div classs="row">
+					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE0AF;</i>
 							<input type="text" name="CompanyName" id="CompanyName" value="" required="true">
@@ -62,7 +79,7 @@
 						</div>
 					</div>
 
-					<!--<div classs="row">
+					<!--<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE894;</i>
 							<input type="url" class="validate" name="Website" id="Website" value="">
@@ -70,7 +87,7 @@
 						</div>
 					</div>-->
 
-					<div classs="row">
+					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE89B;</i>
 							<input type="text" name="Address" id="Address" value="">
@@ -84,7 +101,7 @@
 						<label for="ContactPerson">Contact Person <span class="red-text text-darken-2">*</span></label>
 					</div>
 
-					<div classs="row">
+					<div class="row">
 						<h6 class="red-text text-darken-2">One of the following contact methods is required:</h6>
 						<div class="input-field col s12 m6 l4">
 							<i class="material-icons prefix">&#xE0B0;</i>
@@ -144,6 +161,7 @@
 
 		<script src="/bower_components/jquery/dist/jquery.min.js" defer></script>
 		<script src="/bower_components/firebase/firebase.min.js" defer></script>
+		<script type="text/javascript" src="JavaScript/Init_Firebase.js" defer></script><!--Initialize Firebase-->
 		<script type="text/javascript" src="JavaScript/script.js" defer></script>
 		<script src="/bower_components/materialize/dist/js/materialize.min.js" defer></script>
 	</body>	

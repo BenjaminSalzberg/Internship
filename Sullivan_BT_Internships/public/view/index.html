@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="view">
+	<head>
+		<base href="/view/">
+		<meta charset="utf-8">
+		<title>BT Internships</title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-touch-fullscreen" content="yes">
+
+		<meta name="Description" content="Internships for Beth Tfiloh">
+		<meta name="Author" content="Benjamin Salzberg">
+		<meta name="Editor/Collaborator" content="Sholom Abrahams">
+		<meta name="Editor/Collaborator" content="Chrisovalantis Allulis">
+		
+		<link rel="stylesheet" href="/bower_components/materialize/dist/css/materialize.min.css" async>
+		<link rel="stylesheet" href="CSS/style.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+	<body ng-cloak>
+		<main ng-view></main>
+
+		<script src="/bower_components/jquery/dist/jquery.min.js" defer></script>
+		<script src="/bower_components/firebase/firebase.min.js" defer></script>
+		<script src="/bower_components/angular/angular.min.js" defer></script>
+		<script src="/bower_components/angularfire/dist/angularfire.min.js" defer></script>
+		<script src="/bower_components/angular-route/angular-route.min.js" defer></script>
+		<script src="JavaScript/controllers.js" defer></script><!--Defer means loads at end of page-not blocking asynchronus runs in order-->
+		<script src="/bower_components/materialize/dist/js/materialize.min.js" defer></script>
+	</body>
+</html>

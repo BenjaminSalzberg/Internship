@@ -9,37 +9,34 @@ const CONFIG = {
 firebase.initializeApp(CONFIG);
 
 $("form").submit(function(event) {
-		event.preventDefault();
-		let form = this;
-		const JSON = ConvertFormToJSON(form);
+	event.preventDefault();
+	let form = this;
+	const JSON = ConvertFormToJSON(form);
 
-		//validate (check validate() below)
-	    if (!validate(JSON)) {
-	    	alert("Please enter either an email, a phone number, or a fax number.");
-	    }
+	//validate (check validate() below)
+	if (!validate(JSON)) {
+		alert("Please enter either an email, a phone number, or a fax number.");
+	}
 
-	    //check that a company name was entered
-	    if (!JSON.CompanyName) {
-	    	alert("Please enter your company's name.");
-	    	return;
-	    }
+	//check that a company name was entered
+	if (!JSON.CompanyName) {
+		alert("Please enter your company's name.");
+		return;
+	}
 
-	    //establisher batabase connection to the year/company name
-		var db = firebase.database().ref('/2017' + JSON.CompanyName);
-		//send the json to database, then disable the inputs, and alert thank you message
-		db.set(JSON).then(function() {
-			$("input").attr('disabled', true);
-			alert("Thank you for submitting!");
-		}) //if there is an error in writing to the database, this function is run:
-		.catch(function(e) {
-			alert("We are sorry, your submission could not be saved right now.");console.log("Firebase error:\n" + e)
-		});
-		
-
-		
+	//establishes database connection to the year/company name
+	var db = firebase.database().ref('/2017' + JSON.CompanyName);
+	//send the json to database, then disable the inputs, and alert thank you message
+	db.set(JSON).then(function() {
+		$("input").attr('disabled', true);
+		alert("Thank you for submitting!");
+	}) //if there is an error in writing to the database, this function is run:
+	.catch(function(e) {
+		alert("We are sorry, your submission could not be saved right now.");console.log("Firebase error:\n" + e)
+	});
 });
 
-//makes the form data a json object, witht the keys being the element names, and the values beingt he element values
+//makes the form data a json object, with the keys being the element names, and the values being the element values
 function ConvertFormToJSON(form){
 	let array = jQuery(form).serializeArray();
 	let json = {};
