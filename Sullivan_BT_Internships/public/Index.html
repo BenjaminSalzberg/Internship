@@ -10,7 +10,7 @@
 		<meta name="Description" content="Internships for Beth Tfiloh">
 		<meta name="Author" content="Benjamin Salzberg">
 		<meta name="Editor/Collaborator" content="Shalom Abrahams">
-		<meta name="Editor/Collaborator" content="Chrisovalantis Allulis">
+		<meta name="Editor/Collaborator" content="Chris Allulis">
 		
 		
 
@@ -67,9 +67,9 @@
 		<main>
 			<div class="container" id="wrap">
 				<!--<form class="col s12 m10 l9 offset-m1 offset-l1 row">-->
-				<form class="row">
+				<form class="">
 					<h4>Please enter the following information:</h4>
-					<h6 class="red-text text-darken-2">* Required</h6>
+					<h6 class="red-text text-darken-2">* Indicates Required</h6>
 
 					<div class="row">
 						<div class="input-field col s12">
@@ -95,17 +95,19 @@
 						</div>
 					</div>
 					
-					<div class="input-field col s12">
-						<i class="material-icons prefix">&#xE853;</i>
-						<input type="text" name="ContactPerson" id="ContactPerson" value="" required="true">
-						<label for="ContactPerson">Contact Person <span class="red-text text-darken-2">*</span></label>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">&#xE853;</i>
+							<input type="text" name="ContactPerson" id="ContactPerson" value="" required="true">
+							<label for="ContactPerson">Contact Person <span class="red-text text-darken-2">*</span></label>
+						</div>
 					</div>
 
 					<div class="row">
 						<h6 class="red-text text-darken-2">One of the following contact methods is required:</h6>
 						<div class="input-field col s12 m6 l4">
 							<i class="material-icons prefix">&#xE0B0;</i>
-							<input type="text" name="PhoneNumber" id="PhoneNumber" value="">
+							<input type="tel" name="PhoneNumber" id="PhoneNumber" value="" >
 							<label for="PhoneNumber">Phone Number</label>
 						</div>
 						<div class="input-field col s12 m6 l4">
@@ -114,12 +116,12 @@
 									<path fill="#000000" d="M11,6H16V8H11V6M8,9V3H19V9A3,3 0 0,1 22,12V18H19V21H8V18H7V9H8M10,5V9H17V5H10M10,15V19H17V15H10M19,11A1,1 0 0,0 18,12A1,1 0 0,0 19,13A1,1 0 0,0 20,12A1,1 0 0,0 19,11M4,9H5A1,1 0 0,1 6,10V17A1,1 0 0,1 5,18H4A2,2 0 0,1 2,16V11A2,2 0 0,1 4,9Z" />
 								</svg>
 							</i>
-							<input type="text" name="FaxNumber" id="FaxNumber" value="">
+							<input type="tel" name="FaxNumber" id="FaxNumber" value="">
 							<label for="FaxNumber">Fax Number</label>
 						</div>
 						<div class="input-field col s12 m6 l4">
 							<i class="material-icons prefix">&#xE0BE;</i>
-							<input type="text" name="EMail" id="EMail" value="">
+							<input class="validate" type="email" name="EMail" id="EMail" value="">
 							<label for="EMail">Email Address</label>
 						</div>
 					</div>
@@ -161,7 +163,7 @@
 
 		<script src="/bower_components/jquery/dist/jquery.min.js" defer></script>
 		<script src="/bower_components/firebase/firebase.min.js" defer></script>
-		<script type="text/javascript" src="JavaScript/Init_Firebase.js" defer></script><!--Initialize Firebase-->
+		<!--<script type="text/javascript" src="JavaScript/Init_Firebase.js" defer></script>Initialize Firebase-->
 		<script type="text/javascript" src="JavaScript/script.js" defer></script>
 		<script src="/bower_components/materialize/dist/js/materialize.min.js" defer></script>
 	</body>	

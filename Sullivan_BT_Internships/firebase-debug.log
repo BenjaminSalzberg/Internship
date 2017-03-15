@@ -1,42 +1,15 @@
 [debug] ----------------------------------------------------------------------
-[debug] Command:      D:\Program Files\nodejs\node.exe C:\Users\Sophie\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
-[debug] CLI Version:  3.5.0
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\sholom\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.3.0
 [debug] Platform:     win32
-[debug] Node Version: v6.10.0
-[debug] Time:         Mon Mar 13 2017 14:43:25 GMT-0400 (Eastern Daylight Time)
-[debug] ----------------------------------------------------------------------
-[debug] 
-[info] Starting Firebase development server...
-[info] 
-[info] Project Directory: c:\xampp\htdocs\Sullivan_BT_Internships
-[info] Public Directory: public
-[info] 
-[info] Server listening at: http://localhost:5000
-[debug] ----------------------------------------------------------------------
-[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Mordechai\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
-[debug] CLI Version:  3.5.0
-[debug] Platform:     win32
-[debug] Node Version: v6.9.2
-[debug] Time:         Mon Mar 13 2017 22:59:49 GMT-0400 (Eastern Daylight Time)
+[debug] Node Version: v6.9.1
+[debug] Time:         Wed Mar 15 2017 15:58:59 GMT-0400 (Eastern Daylight Time)
 [debug] ----------------------------------------------------------------------
 [debug] 
 [info] Starting Firebase development server...
 [info] 
 [info] Project Directory: C:\wamp64\www\Internship\Sullivan_BT_Internships
+[warn] !  Port 5000 is not available. Trying another port...
 [info] Public Directory: public
 [info] 
-[info] Server listening at: http://localhost:5000
-[debug] ----------------------------------------------------------------------
-[debug] Command:      D:\Program Files\nodejs\node.exe C:\Users\Sophie\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
-[debug] CLI Version:  3.5.0
-[debug] Platform:     win32
-[debug] Node Version: v6.10.0
-[debug] Time:         Wed Mar 15 2017 09:50:27 GMT-0400 (Eastern Daylight Time)
-[debug] ----------------------------------------------------------------------
-[debug] 
-[info] Starting Firebase development server...
-[info] 
-[info] Project Directory: C:\xampp\htdocs\Internship\Sullivan_BT_Internships
-[info] Public Directory: public
-[info] 
-[info] Server listening at: http://localhost:5000
+[info] Server listening at: http://localhost:5001
