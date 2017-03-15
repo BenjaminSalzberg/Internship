@@ -8,17 +8,6 @@ nav ul.side-nav {
 	color: #383838;
 }
 
-main {
-	margin-top: 50px;
-	padding-left: 300px;
-}
-
-form {
-	background-color: #eee;
-	padding: 5px 12.5px;
-	border-radius: 2px;
-}
-
 #logo-top {
 	margin-top: 32px;
 }
@@ -40,7 +29,23 @@ form {
 	text-align: center;
 }
 
-input,textarea {
-	float: right;
-	clear: right;
+main {
+	margin-top: 50px;
+	padding-left: 300px;
+}
+
+form {
+	background-color: #eee;
+	padding: 5px 12.5px;
+	border-radius: 2px;
+}
+
+form h4, form h6 {
+	margin-left: 13px;
+}
+
+@media screen and (max-width: 992px) {
+	main {
+		padding-left: initial;
+	}
 }
