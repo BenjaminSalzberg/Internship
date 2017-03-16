@@ -29,7 +29,7 @@ app.config(["$routeProvider", "$locationProvider", function ($routeProvider, $lo
 			}]
 		}
 	}).
-	when("/view", {//for is something needs a sign in
+	when("/view", {//tells us we need to log in
 		controller: "dash",
 		templateUrl: "templates/dash.html",
 		resolve: {
@@ -38,14 +38,19 @@ app.config(["$routeProvider", "$locationProvider", function ($routeProvider, $lo
 			}]
 		}
 	}).
-	otherwise({//sends to login page in case all other checks fail, same as line 23
+	otherwise({//sends to login page in case all other checks fail, = line 23 provides a way to link to the template and tells the template what the button will do
 		template:"templates/login.html"
 	});
 }]);
 
 
-app.controller("login", ["currentAuth","$scope",function (currentAuth, $scope){
 
+
+
+
+
+app.controller("login", ["currentAuth","$scope", "$firebaseAuth", function (currentAuth, $scope, $firebaseAuth){
+	$scope.auth = $firebaseAuth();
 }]);
 
 app.controller("dash", ["currentAuth","$scope",function (currentAuth, $scope){
