@@ -1,2 +1,2 @@
 # Internship
-Internship things
+A Website for use by Beth Tfiloh to organize internship possibilities for students as well as make it easier for companies to inform Beth Tfiloh the requirements for and want of their internship.
