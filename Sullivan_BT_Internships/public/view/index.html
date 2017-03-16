@@ -31,8 +31,36 @@
 			<div ng-if="loggedIn" class="row">
 				<h3>Dash</h3>
 				<table>
+					<tr>
+						<th>Company Name</th>
+						<th>Address</th>
+						<th>Contact</th>
+						<th>E-mail</th>
+						<th>Phone</th>
+						<th>Fax</th>
+						<th>Service or Product Provided</th>
+						<th>Hours</th>
+						<th>Dress Code</th>
+						<th>Skill Required</th>
+						<th>Required Skill</th>
+						<th>Responsibilities</th>
+					</tr>
 					<tr ng-repeat="company in data">
 						<td ng-bind="company.CompanyName"></td>
+						<td ng-bind="company.Address"></td>
+						<td ng-bind="company.ContactPerson"></td>
+						<td ng-bind="company.EMail"></td>
+						<td ng-bind="company.PhoneNumber"></td>
+						<td ng-bind="company.FaxNumber"></td>
+						<td ng-bind="company.ServiceProductProvided"></td>
+						<td ng-bind="company.Hours"></td>
+						<td ng-bind="company.DressCode"></td>
+						<td ng-bind="company.Skill"></td>
+						<td ng-bind="company.SkillDescription"></td>
+						<td ng-bind="company.Responsibilities1"></td>
+						<td ng-bind="company.Responsibilities2"></td>
+						<td ng-bind="company.Responsibilities3"></td>
+						<td ng-bind="company.Responsibilities4"></td>
 					</tr>
 				</table>
 			</div>
