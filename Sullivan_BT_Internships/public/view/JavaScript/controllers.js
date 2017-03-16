@@ -18,6 +18,14 @@ app.controller("dash", ["$scope", "$firebaseAuth", "$location", "$firebaseArray"
 		messagingSenderId: "820212679716"
 	};
 	firebase.initializeApp(CONFIG);
+	$scope.deleteItem = function(id){
+		console.log(id);
+		var itemRef = new firebase.database().ref('/2017/'+ id);
+		itemRef.remove();
+	}
+
+
+
 
 	//place the uid of every approved user in this array
 	const APPROVED_UIDS = [
@@ -48,10 +56,12 @@ app.controller("dash", ["$scope", "$firebaseAuth", "$location", "$firebaseArray"
 		});
 	};
 
-
 	let ref = firebase.database().ref("/2017");
 	$scope.data = $firebaseArray(ref);
 }]);
+
+
+
 
 
 
