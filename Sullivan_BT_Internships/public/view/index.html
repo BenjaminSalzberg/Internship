@@ -30,6 +30,7 @@
 
 			<div ng-if="loggedIn" class="row">
 				<h3>Dash</h3>
+				<input type="search" ng-model="searchItem">
 				<table>
 					<tr>
 						<th>Company Name</th>
@@ -45,7 +46,7 @@
 						<th>Required Skill</th>
 						<th>Responsibilities</th>
 					</tr>
-					<tr ng-repeat="company in data">
+					<tr ng-repeat="company in data | orderBy: CompanyName | filter: searchItem">
 						<td ng-bind="company.CompanyName"></td>
 						<td ng-bind="company.Address"></td>
 						<td ng-bind="company.ContactPerson"></td>
