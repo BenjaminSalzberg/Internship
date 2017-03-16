@@ -1,10 +1,10 @@
 // Initialize Firebase
 const CONFIG = {
-	apiKey: "AIzaSyCH9Ip83AVAahbvt7hbVA9OSEbnjnBHNbE",
-	authDomain: "internships-1b609.firebaseapp.com",
-	databaseURL: "https://internships-1b609.firebaseio.com",
-	storageBucket: "internships-1b609.appspot.com",
-	messagingSenderId: "820212679716"
+	apiKey: "AIzaSyCmKcMKzKroMq2Uli0y7qg0ectcowt0Iy8",
+	authDomain: "bt-internships.firebaseapp.com",
+	databaseURL: "https://bt-internships.firebaseio.com",
+	storageBucket: "bt-internships.appspot.com",
+	messagingSenderId: "367923136332"
 };
 firebase.initializeApp(CONFIG);
 var check = true;

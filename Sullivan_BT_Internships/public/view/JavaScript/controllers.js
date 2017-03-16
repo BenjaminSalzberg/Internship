@@ -11,11 +11,11 @@ app.factory("Auth", ["$firebaseAuth", function ($firebaseAuth) {
 app.controller("dash", ["$scope", "$firebaseAuth", "$location", "$firebaseArray", function ($scope, $firebaseAuth, $location, $firebaseArray) {
 	//initialize firebase
 	const CONFIG = {
-		apiKey: "AIzaSyCH9Ip83AVAahbvt7hbVA9OSEbnjnBHNbE",
-		authDomain: "internships-1b609.firebaseapp.com",
-		databaseURL: "https://internships-1b609.firebaseio.com",
-		storageBucket: "internships-1b609.appspot.com",
-		messagingSenderId: "820212679716"
+		apiKey: "AIzaSyCmKcMKzKroMq2Uli0y7qg0ectcowt0Iy8",
+		authDomain: "bt-internships.firebaseapp.com",
+		databaseURL: "https://bt-internships.firebaseio.com",
+		storageBucket: "bt-internships.appspot.com",
+		messagingSenderId: "367923136332"
 	};
 	firebase.initializeApp(CONFIG);
 	$scope.deleteItem = function(id){
@@ -29,7 +29,7 @@ app.controller("dash", ["$scope", "$firebaseAuth", "$location", "$firebaseArray"
 
 	//place the uid of every approved user in this array
 	const APPROVED_UIDS = [
-		"LiPOM2JIgaWPQ9cNf4QbtVK6p842"
+		"bv1j4n5YV2gT43LV2RLTKUSt13K2"
 	];
 
 
