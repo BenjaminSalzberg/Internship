@@ -7,7 +7,7 @@ const CONFIG = {
 	messagingSenderId: "367923136332"
 };
 firebase.initializeApp(CONFIG);
-var check = true;
+
 $("form").submit(function(event) {
 	event.preventDefault();
 	let form = this;
@@ -16,17 +16,9 @@ $("form").submit(function(event) {
 	//validate (check validate() below)
 	if (!validate(JSON)) {
 		alert("Please enter either an email, a phone number, or a fax number.");
-		check = false;
-		return;
-	}
-	else
-	{
-		check = true;
-	}
-	if(check===true)
-	{
+	} else {
 		//establishes database connection to the year/company name
-		var db = firebase.database().ref('/2017/' + JSON.CompanyName);
+		let db = firebase.database().ref('/2017').child(JSON.CompanyName);
 		//send the json to database, then disable the inputs, and alert thank you message
 		db.set(JSON).then(function() {
 			$("input").attr('disabled', true);
@@ -35,7 +27,7 @@ $("form").submit(function(event) {
 		.catch(function(e) {
 			alert("We are sorry, your submission could not be saved right now.");console.log("Firebase error:\n" + e)
 		});
-	}
+	};
 });
 
 //makes the form data a json object, with the keys being the element names, and the values being the element values
