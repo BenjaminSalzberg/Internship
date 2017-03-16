@@ -26,7 +26,7 @@ $("form").submit(function(event) {
 	if(check===true)
 	{
 		//establishes database connection to the year/company name
-		var db = firebase.database().ref('/2017' + JSON.CompanyName);
+		var db = firebase.database().ref('/2017/' + JSON.CompanyName);
 		//send the json to database, then disable the inputs, and alert thank you message
 		db.set(JSON).then(function() {
 			$("input").attr('disabled', true);

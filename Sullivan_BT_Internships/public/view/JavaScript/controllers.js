@@ -7,7 +7,8 @@ app.factory("Auth", ["$firebaseAuth", function ($firebaseAuth) {
 	return $firebaseAuth();
 }]);//
 
-app.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider) {
+
+app.controller("dash", ["$scope", "$firebaseAuth", "$location", "$firebaseArray", function ($scope, $firebaseAuth, $location, $firebaseArray) {
 	//initialize firebase
 	const CONFIG = {
 		apiKey: "AIzaSyCH9Ip83AVAahbvt7hbVA9OSEbnjnBHNbE",
@@ -18,41 +19,45 @@ app.config(["$routeProvider", "$locationProvider", function ($routeProvider, $lo
 	};
 	firebase.initializeApp(CONFIG);
 
-	$locationProvider.html5Mode(true);//says this is in html5 mode
+	//place the uid of every approved user in this array
+	const APPROVED_UIDS = [
+		"LiPOM2JIgaWPQ9cNf4QbtVK6p842"
+	];
 
-	$routeProvider.when("/", {//provides a way to link to the template and tells the template what the button will do
-		controller: "login",
-		templateUrl: "templates/login.html",
-		resolve: {
-			"currentAuth": ["Auth", function (Auth) {
-				return Auth.$waitForSignIn();
-			}]
+
+	let auth = $firebaseAuth();
+	//auth.$signOut();
+
+	let user;
+	auth.$onAuthStateChanged(function (firebaseUser) {
+		user = firebaseUser;
+		
+		//if logged in user is not approved
+		if (APPROVED_UIDS.indexOf(user.uid) === -1) {
+			$scope.loggedIn = false;
+			alert("Sorry. Your account is not authorized to view the data.");
+		} else {
+			//if logged in user is authorised, give em the dashboard
+			$scope.loggedIn = true;
 		}
-	}).
-	when("/view", {//tells us we need to log in
-		controller: "dash",
-		templateUrl: "templates/dash.html",
-		resolve: {
-			"currentAuth": ["Auth", function (Auth) {
-				return Auth.$requireSignIn();
-			}]
-		}
-	}).
-	otherwise({//sends to login page in case all other checks fail, = line 23 provides a way to link to the template and tells the template what the button will do
-		template:"templates/login.html"
 	});
+
+	$scope.login = function () {
+		auth.$signInWithRedirect("google").then(function (user) {
+			//$location.path("/dash");
+		});
+	};
+
+
+	let ref = firebase.database().ref("/2017");
+	$scope.data = $firebaseArray(ref);
 }]);
 
 
 
-
-
-
-
-app.controller("login", ["currentAuth","$scope", "$firebaseAuth", function (currentAuth, $scope, $firebaseAuth){
-	$scope.auth = $firebaseAuth();
-}]);
-
-app.controller("dash", ["currentAuth","$scope",function (currentAuth, $scope){
-	
-}]);
+//app.controller("ProfileCtrl", ["$scope", "$firebaseObject",function($scope, $firebaseObject) {
+//	var ref = firebase.database().ref();
+//	// download physicsmarie's profile data into a local object
+//	// all server changes are applied in realtime
+//	$scope.profile = $firebaseObject(ref.child('profiles').child('physicsmarie'));
+//}]);
