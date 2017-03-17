@@ -65,6 +65,15 @@ form .row h6 {
 	box-shadow: 0 1px 0 0 #f3c36b !important;
 }
 
+/* The following 2 selectors make the radio buttons the same colour as the labels */
+.input-field input[type="radio"]:checked+label:after, .input-field input[type="radio"].with-gap:checked+label:before, .input-field input[type="radio"].with-gap:checked+label:after {
+	border: 2px solid #f3c36b;
+}
+
+.input-field input[type="radio"]:checked+label:after, .input-field input[type="radio"].with-gap:checked+label:after {
+	background-color: #f3c36b;
+}
+
 
 @media screen and (max-width: 992px) {
 	main {
