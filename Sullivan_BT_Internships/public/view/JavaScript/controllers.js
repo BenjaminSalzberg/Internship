@@ -33,6 +33,7 @@ app.controller("dash", ["$scope", "$firebaseAuth", "$location", "$firebaseArray"
 	const APPROVED_UIDS = [
 		"bv1j4n5YV2gT43LV2RLTKUSt13K2",
 		"BgupKS6BzmVffIdLqggWeOhtK9G2",
+		"FbVpE3L0gtPMMMzCdlDTdpD4qa22"
 	];
 
 
