@@ -10,7 +10,7 @@ This Website was designed to allow Beth Tfiloh administrators asy access to data
 
 ## Authors
 
-* **Benjamin Salzberg** - *Initial work* - [MajorBerg](https://github.com/MajorBerg)
+* **Benjamin Salzberg** - [MajorBerg](https://github.com/MajorBerg)
 
 See also the list of [contributors](https://github.com/MajorBerg/Internship/graphs/contributors) who participated in this project.
 
