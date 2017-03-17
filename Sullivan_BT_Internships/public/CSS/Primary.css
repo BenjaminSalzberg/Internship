@@ -52,7 +52,7 @@ form .row h6 {
 }
 
 /* these selectors select the input icons, labels, and underlines */
-.input-field input:focus + label, .input-field textarea:focus + label, .input-field .prefix.active {
+.input-field input:focus + label, .input-field textarea:focus + label, .input-field .prefix.active, .input-field input[type=radio]:checked+label {
 	color: #f3c36b !important;
 }
 
