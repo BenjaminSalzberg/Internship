@@ -6,7 +6,7 @@ This Website was designed to allow Beth Tfiloh administrators asy access to data
 
 * [Firebase](https://firebase.google.com/) - The Database System
 * [AngularFire](https://github.com/firebase/angularfire) - Javascript library
-* [Materialize](https://www.materializecss.com/) - CSS Library
+* [Materialize](http://www.materializecss.com/) - CSS Library
 
 ## Authors
 
