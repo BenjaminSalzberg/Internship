@@ -1,36 +1,21 @@
-<snippet>
-	<content><![CDATA[
-		# ${1:Project Name}
+# Beth Tfiloh Internship Website
 
-		TODO: Write a project description
+This Website was designed to allow Beth Tfiloh administrators asy access to data on campanies that they can have as internships. The Website also allows Companies to add data entries to ease on the collection of data for student internships.  
 
-		## Installation
+## Built With
 
-		TODO: Describe the installation process
+* [Firebase](https://firebase.google.com/) - The Database System
+* [AngularFire](https://github.com/firebase/angularfire) - Javascript library
+* [Materialize](https://www.materializecss.com/) - CSS Library
 
-		## Usage
+## Authors
 
-		TODO: Write usage instructions
+* **Benjamin Salzberg** - *Initial work* - [MajorBerg](https://github.com/MajorBerg)
 
-		## Contributing
+See also the list of [contributors](https://github.com/MajorBerg/Internship/graphs/contributors) who participated in this project.
 
-		1. Fork it!
-		2. Create your feature branch: `git checkout -b my-new-feature`
-		3. Commit your changes: `git commit -am 'Add some feature'`
-		4. Push to the branch: `git push origin my-new-feature`
-		5. Submit a pull request :D
+## Acknowledgments
 
-		## History
-
-		TODO: Write history
-
-		## Credits
-
-		TODO: Write credits
-
-		## License
-
-		TODO: Write license
-		]]></content>
-	<tabTrigger>readme</tabTrigger>
-</snippet>
+* Sholom Abrahams [sholomabrahams](https://github.com/sholomabrahams)
+* Chrisovalantis Allulis [Valandi](https://github.com/Valandi)
+* etc
