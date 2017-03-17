@@ -31,6 +31,7 @@
 			<div ng-if="loggedIn" class="row">
 				<h3>Dash</h3>
 				<div id="Search" class="input-field">
+					<i class="material-icons prefix">&#xE8B6;</i>
 					<label for="Search">Search</label>
 					<input type="search" name="Search" id="Search" ng-model="searchItem">
 				</div>
@@ -62,9 +63,6 @@
 						<td ng-bind="company.Skill"></td>
 						<td ng-bind="company.SkillDescription"></td>
 						<td ng-bind="company.Responsibilities1"></td>
-						<td ng-bind="company.Responsibilities2"></td>
-						<td ng-bind="company.Responsibilities3"></td>
-						<td ng-bind="company.Responsibilities4"></td>
 						<td><button ng-click="deleteItem(company.CompanyName)">Delete</button></td>
 					</tr>
 				</table>
