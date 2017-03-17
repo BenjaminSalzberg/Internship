@@ -30,7 +30,10 @@
 
 			<div ng-if="loggedIn" class="row">
 				<h3>Dash</h3>
-				<input type="search" ng-model="searchItem">
+				<div id="Search" class="input-field">
+					<label for="Search">Search</label>
+					<input type="search" name="Search" id="Search" ng-model="searchItem">
+				</div>
 				<table>
 					<tr>
 						<th>Company Name</th>

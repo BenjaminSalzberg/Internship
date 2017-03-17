@@ -32,7 +32,7 @@ app.controller("dash", ["$scope", "$firebaseAuth", "$location", "$firebaseArray"
 	//place the uid of every approved user in this array
 	const APPROVED_UIDS = [
 		"bv1j4n5YV2gT43LV2RLTKUSt13K2",
-		"BgupKS6BzmVffIdLqggWeOhtK9G2"
+		"BgupKS6BzmVffIdLqggWeOhtK9G2",
 	];
 
 
@@ -42,7 +42,7 @@ app.controller("dash", ["$scope", "$firebaseAuth", "$location", "$firebaseArray"
 	let user;
 	auth.$onAuthStateChanged(function (firebaseUser) {
 		user = firebaseUser;
-		
+		console.log(user.uid);
 		//if logged in user is not approved
 		if (APPROVED_UIDS.indexOf(user.uid) === -1) {
 			$scope.loggedIn = false;
