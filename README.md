@@ -18,4 +18,3 @@ See also the list of [contributors](https://github.com/MajorBerg/Internship/grap
 
 * Sholom Abrahams [sholomabrahams](https://github.com/sholomabrahams)
 * Chrisovalantis Allulis [Valandi](https://github.com/Valandi)
-* etc
