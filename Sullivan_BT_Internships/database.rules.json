@@ -1,8 +1,11 @@
 {
   "rules": {
-    "$student": {
-      ".read": "!data.exists() || auth.uid === 'LiPOM2JIgaWPQ9cNf4QbtVK6p842'",
-      ".write": "!data.exists() || auth.uid === 'LiPOM2JIgaWPQ9cNf4QbtVK6p842'"
+    "$year": {
+      ".read": true,
+      "$student": {
+        ".read": "true",
+        ".write": "!data.exists() || auth.uid === 'bv1j4n5YV2gT43LV2RLTKUSt13K2' || auth.uid === 'BgupKS6BzmVffIdLqggWeOhtK9G2'"
+      }
     }
   }
 }
