@@ -41,9 +41,14 @@
 			<ul class="side-nav fixed hide-on-med-and-below">
 				<li id="logo-top">
 					<div>
-						<img src="Images/bt_logo_circle.png" alt="Beth Tfiloh Dahan Community School" width="125" height="125">
+						<a href="https://www.bethtfiloh.com/page/school" target="_blank" class="browser-default"><img src="Images/bt_logo_circle.png" alt="Beth Tfiloh Dahan Community School" width="125" height="125"></a>
 					</div>
 					<h5>BT Internships</h5>
+				</li>
+
+				<li id="bottom">
+					<p>&copy;2017, <a href="mailto: besrasal@gmail.com">Ben Salzberg</a></p>
+					<a href="http://madewithloveinbaltimore.org/" target="_blank">Made with <i class="material-icons">&#xE87D;</i> in Baltimore</a>
 				</li>
 			</ul>
 		</header>
@@ -53,6 +58,7 @@
 			<div class="container" id="wrap">
 				<!--<form class="col s12 m10 l9 offset-m1 offset-l1 row">-->
 				<form class="">
+
 					<h4>Please enter the following information:</h4>
 					<h6 class="red-text text-darken-2">* Indicates Required</h6>
 
@@ -91,10 +97,17 @@
 					<div class="row">
 						<h6 class="red-text text-darken-2">One of the following contact methods is required:</h6>
 						<div class="input-field col s12 m6 l4">
+							<i class="material-icons prefix">&#xE0BE;</i>
+							<input class="validate" type="email" name="EMail" id="EMail" value="">
+							<label for="EMail">Email Address</label>
+						</div>
+
+						<div class="input-field col s12 m6 l4">
 							<i class="material-icons prefix">&#xE0B0;</i>
 							<input type="tel" name="PhoneNumber" id="PhoneNumber" value="" >
 							<label for="PhoneNumber">Phone Number</label>
 						</div>
+
 						<div class="input-field col s12 m6 l4">
 							<i class="material-icons prefix">
 								<svg style="width:30px;height:30px" viewBox="0 0 24 24">
@@ -103,11 +116,6 @@
 							</i>
 							<input type="tel" name="FaxNumber" id="FaxNumber" value="">
 							<label for="FaxNumber">Fax Number</label>
-						</div>
-						<div class="input-field col s12 m6 l4">
-							<i class="material-icons prefix">&#xE0BE;</i>
-							<input class="validate" type="email" name="EMail" id="EMail" value="">
-							<label for="EMail">Email Address</label>
 						</div>
 					</div>
 					
@@ -119,17 +127,17 @@
 						</div>
 					</div>
 
-					<div class="row">
+					<div class="row" id="radio">
 						<div class="input-field col s12">
 							<p>Should the student have a particular skill or interest?</p>
-							<input class="with-gap" type="radio" name="Skill" id="SkillYes" value="Yes">
+							<input class="with-gap" type="radio" name="Skill" id="SkillYes" value="yes">
 							<label for="SkillYes">Yes</label>
-							<input class="with-gap" type="radio" name="Skill" id="SkillNo" value="No">
+							<input class="with-gap" type="radio" name="Skill" id="SkillNo" value="no">
 							<label for="SkillNo">No</label>
 						</div>
 					</div>
 
-					<div class="row">
+					<div class="row" id="describe">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE873;</i>
 							<input type="text" name="SkillDescription" id="SkillDescription" rows="3" cols="20" value="">
@@ -148,7 +156,7 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE8B5;</i>
-							<input type="text" name="Hours" id="Hours" min="0" max="255">
+							<input type="text" name="Hours" id="Hours">
 							<label for="Hours">Hours of work avialable to student</label>
 						</div>
 					</div>
@@ -164,13 +172,18 @@
 
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">&#xE7EF;</i><!--this is a temporary group of people group on materialize -->
-							<input type="text" name="NumberMentor" id="NumberMentor" min="0" max="255">
+							<i class="material-icons prefix">&#xE7EF;</i>
+							<input type="text" name="NumberMentor" id="NumberMentor">
 							<label for="NumberMentor">Number of students you are willing to mentor</label>
 						</div>
 					</div>
 					
-					<input id="Submit" type="submit"></div>
+					<div class="row">
+						<button class="btn waves-effect waves-light center large" type="submit">
+							Submit
+						</button>
+					</div>
+
 				</form>
 			</div>
 		</main>

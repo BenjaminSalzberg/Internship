@@ -49,3 +49,14 @@ function validate (json) {
 	}
 	return true;
 };
+
+let open = false;
+$("input[type='radio'][name='Skill']").change(function () {
+	if (this.value == 'yes' && !open) {
+		$("#describe").slideDown();
+		open = true;
+	} else if (this.value == 'no' && open) {
+		$("#describe").slideUp();
+		open = false;
+	}
+});
