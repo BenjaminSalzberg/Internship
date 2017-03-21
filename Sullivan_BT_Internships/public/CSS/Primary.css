@@ -27,7 +27,7 @@ nav ul.side-nav {
 
 #logo-top a {
 	height: initial;
-	line-height: initial;
+	line-height: 0;
 	padding: initial;
 	font-size: initial;
 }
@@ -45,7 +45,7 @@ nav ul.side-nav {
 
 #bottom {
 	position: absolute;
-	bottom: 60px;
+	bottom: 65px;
 	width: 100%;
 }
 
@@ -77,12 +77,13 @@ nav ul.side-nav {
 }
 
 #bottom i {
-	float: initial !important;
+	float: none !important;
 	width: auto !important;
 	line-height: initial !important;
 	margin: 0 !important;
 	font-size: 12px;
 	height: auto;
+	display: inline !important;
 }
 
 /* End of Sidebar */
