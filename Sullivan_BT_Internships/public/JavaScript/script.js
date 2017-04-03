@@ -60,3 +60,49 @@ $("input[type='radio'][name='Skill']").change(function () {
 		open = false;
 	}
 });
+
+let navigate = function (target) {
+	if (target.includes("companies")) {
+		$("main #choose").fadeOut(10, function () {
+			history.pushState(null, null, '/companies');
+			$("main").css('height', 'auto');
+			$("main div#companies").fadeIn(300);
+		});
+
+	} else if (target.includes("students")) {
+		$("main #choose").fadeOut(10, function () {
+			history.pushState(null, null, '/students');
+			$("main").css('height', 'auto');
+			$("main div#students").fadeIn(300);
+		});
+
+	} else if (target == "home") {
+		$("main div#students, main div#companies").fadeOut(10, function() {
+			$("main").css('height', '100%');
+			$("main #choose").fadeIn(300);
+		});
+	};
+};
+
+$("main #choose button").click(function(event) {
+	event.preventDefault();
+
+	navigate($(this).attr('id'));
+});
+
+let locChange = function () {
+	if (document.location.pathname == "/") {
+		navigate("home");
+	} else {
+		navigate(document.location.pathname);
+	};
+};
+
+$(document).ready(function () {
+	locChange();
+});
+
+$(window).on('popstate', function () {
+	locChange();
+});
+

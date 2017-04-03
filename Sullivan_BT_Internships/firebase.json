@@ -3,6 +3,14 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "public"
+    "public": "public",
+
+    "rewrites": [{
+      "source": "/companies**",
+      "destination": "/index.html"
+    }, {
+      "source": "/students**",
+      "destination": "/index.html"
+    }]
   }
 }

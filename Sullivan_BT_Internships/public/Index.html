@@ -29,7 +29,7 @@
 		<meta property="og:image" content="/images/bt_logo_circle.png"/>
 		
 		<link rel="stylesheet" href="/bower_components/materialize/dist/css/materialize.min.css" async>
-		<link rel="stylesheet" href="CSS/Primary.css" async>
+		<link rel="stylesheet" href="/CSS/Primary.css" async>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<body>
@@ -41,7 +41,7 @@
 			<ul class="side-nav fixed hide-on-med-and-below">
 				<li id="logo-top">
 					<div>
-						<a href="https://www.bethtfiloh.com/page/school" target="_blank" class="browser-default"><img src="Images/bt_logo_circle.png" alt="Beth Tfiloh Dahan Community School" width="125" height="125"></a>
+						<a href="https://www.bethtfiloh.com/page/school" target="_blank" class="browser-default"><img src="/Images/bt_logo_circle.png" alt="Beth Tfiloh Dahan Community School" width="125" height="125"></a>
 					</div>
 					<h5>BT Internships</h5>
 				</li>
@@ -55,7 +55,21 @@
 
 
 		<main>
-			<div class="container" id="wrap">
+			<div id="choose" class="valign-wrapper row">
+				<!--<h2 class="">Welcome!</h2><br>-->
+				<div class="row valign col s12">
+					<button id="companies" class="col m4 l3 offset-m1 offset-l2">
+						<i class="material-icons">&#xE0AF;</i>
+						<h5>Companies</h5>
+					</button>
+					<button id="students" class="col m4 l3 offset-m1 offset-l2">
+						<i class="material-icons">&#xE7FD;</i>
+						<h5>Students</h5>
+					</button>
+				</div>
+			</div>
+
+			<div class="container" id="companies">
 				<!--<form class="col s12 m10 l9 offset-m1 offset-l1 row">-->
 				<form class="">
 
@@ -191,7 +205,7 @@
 		<script src="/bower_components/jquery/dist/jquery.min.js" defer></script>
 		<script src="/bower_components/firebase/firebase.min.js" defer></script>
 		<!--<script type="text/javascript" src="JavaScript/Init_Firebase.js" defer></script>Initialize Firebase-->
-		<script type="text/javascript" src="JavaScript/script.js" defer></script>
+		<script type="text/javascript" src="/JavaScript/script.js" defer></script>
 		<script src="/bower_components/materialize/dist/js/materialize.min.js" defer></script>
 	</body>	
 </html>
