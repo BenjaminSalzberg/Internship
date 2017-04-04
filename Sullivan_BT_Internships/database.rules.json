@@ -2,9 +2,19 @@
   "rules": {
     "$year": {
       ".read": true,
-      "$student": {
-        ".read": "true",
-        ".write": "!data.exists() || auth.uid === 'bv1j4n5YV2gT43LV2RLTKUSt13K2' || auth.uid === 'BgupKS6BzmVffIdLqggWeOhtK9G2'"
+
+      "companies": {
+        "$company": {
+          ".read": "true",
+          ".write": "!data.exists() || auth.uid === 'bv1j4n5YV2gT43LV2RLTKUSt13K2' || auth.uid === 'BgupKS6BzmVffIdLqggWeOhtK9G2'"
+        }
+      },
+
+      "students": {
+        "$student": {
+          ".read": "true",
+          ".write": "!data.exists() || auth.uid === 'bv1j4n5YV2gT43LV2RLTKUSt13K2' || auth.uid === 'BgupKS6BzmVffIdLqggWeOhtK9G2'"
+        }
       }
     }
   }

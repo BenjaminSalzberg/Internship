@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" ng-app="internships">
 	<head>
 		<meta charset="utf-8">
 		<title>BT Internships</title>
@@ -9,39 +9,44 @@
 
 		<meta name="Description" content="Internships for Beth Tfiloh">
 		<meta name="Author" content="Benjamin Salzberg">
-		<meta name="Editor/Collaborator" content="Shalom Abrahams">
+		<meta name="Editor/Collaborator" content="Sholom Abrahams">
 		<meta name="Editor/Collaborator" content="Chris Allulis">
 		
 		
 
-		<link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-touch-icon.png">
-		<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
-		<link rel="manifest" href="/images/favicons/manifest.json">
-		<link rel="shortcut icon" href="/images/favicons/favicon.ico">
-		<meta name="msapplication-config" content="/images/favicons/browserconfig.xml">
+		<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/img/favicons/manifest.json">
+		<link rel="shortcut icon" href="/img/favicons/favicon.ico">
+		<meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
 		<meta name="theme-color" content="#ffffff">
 
 		<meta property="og:title" content="BT Internships"/>
 		<meta property="og:type" content="website"/>
 		<!-- <meta property="og:description" content=""> -->
 		<meta property="og:url" content="https://bt-internships.firebaseapp.com"/>
-		<meta property="og:image" content="/images/bt_logo_circle.png"/>
+		<meta property="og:image" content="/img/bt_logo_circle.png"/>
 		
 		<link rel="stylesheet" href="/bower_components/materialize/dist/css/materialize.min.css" async>
-		<link rel="stylesheet" href="/CSS/Primary.css" async>
+		<link rel="stylesheet" href="/style/primary.css" async>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<body>
 		<header>
 			<nav class="hide-on-large-only">
-				
+					<div class="brand-logo">
+						<a href="https://www.bethtfiloh.com/page/school" target="_blank" class="browser-default">
+							<img src="/img/bt_logo_circle.png" alt="Beth Tfiloh Dahan Community School" width="58" height="58" class="left">
+							<h4 class="left">&nbsp;Internships</h4>
+						</a>
+					</div>
 			</nav>
 
 			<ul class="side-nav fixed hide-on-med-and-below">
 				<li id="logo-top">
 					<div>
-						<a href="https://www.bethtfiloh.com/page/school" target="_blank" class="browser-default"><img src="/Images/bt_logo_circle.png" alt="Beth Tfiloh Dahan Community School" width="125" height="125"></a>
+						<a href="https://www.bethtfiloh.com/page/school" target="_blank" class="browser-default"><img src="/img/bt_logo_circle.png" alt="Beth Tfiloh Dahan Community School" width="125" height="125"></a>
 					</div>
 					<h5>BT Internships</h5>
 				</li>
@@ -58,11 +63,11 @@
 			<div id="choose" class="valign-wrapper row">
 				<!--<h2 class="">Welcome!</h2><br>-->
 				<div class="row valign col s12">
-					<button id="companies" class="col m4 l3 offset-m1 offset-l2">
+					<button id="companies" class="col s12 m6 l3 offset-l2">
 						<i class="material-icons">&#xE0AF;</i>
 						<h5>Companies</h5>
 					</button>
-					<button id="students" class="col m4 l3 offset-m1 offset-l2">
+					<button id="students" class="col s12 m6 l3 offset-l2">
 						<i class="material-icons">&#xE7FD;</i>
 						<h5>Students</h5>
 					</button>
@@ -71,7 +76,7 @@
 
 			<div class="container" id="companies">
 				<!--<form class="col s12 m10 l9 offset-m1 offset-l1 row">-->
-				<form class="">
+				<form id="conmpany-form">
 
 					<h4>Please enter the following information:</h4>
 					<h6 class="red-text text-darken-2">* Indicates Required</h6>
@@ -79,8 +84,8 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE0AF;</i>
-							<input type="text" name="CompanyName" id="CompanyName" value="" required="true">
-							<label for="CompanyName">Company Name <span class="red-text text-darken-2">*</span></label>
+							<input type="text" name="companyName" id="companyName" value="" required="true">
+							<label for="companyName">Company Name <span class="red-text text-darken-2">*</span></label>
 						</div>
 					</div>
 
@@ -95,16 +100,16 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE89B;</i>
-							<input type="text" name="Address" id="Address" value="">
-							<label for="Address">Company Address</label>
+							<input type="text" name="address" id="address" value="">
+							<label for="address">Company Address</label>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE853;</i>
-							<input type="text" name="ContactPerson" id="ContactPerson" value="" required="true">
-							<label for="ContactPerson">Contact Person <span class="red-text text-darken-2">*</span></label>
+							<input type="text" name="contactPerson" id="contactPerson" value="" required="true">
+							<label for="contactPerson">Contact Person <span class="red-text text-darken-2">*</span></label>
 						</div>
 					</div>
 
@@ -112,14 +117,14 @@
 						<h6 class="red-text text-darken-2">One of the following contact methods is required:</h6>
 						<div class="input-field col s12 m6 l4">
 							<i class="material-icons prefix">&#xE0BE;</i>
-							<input class="validate" type="email" name="EMail" id="EMail" value="">
-							<label for="EMail">Email Address</label>
+							<input class="validate" type="email" name="email" id="email" value="">
+							<label for="email">Email Address</label>
 						</div>
 
 						<div class="input-field col s12 m6 l4">
 							<i class="material-icons prefix">&#xE0B0;</i>
-							<input type="tel" name="PhoneNumber" id="PhoneNumber" value="" >
-							<label for="PhoneNumber">Phone Number</label>
+							<input type="tel" name="phone" id="phone" value="" >
+							<label for="phone">Phone Number</label>
 						</div>
 
 						<div class="input-field col s12 m6 l4">
@@ -128,58 +133,58 @@
 									<path fill="#000000" d="M11,6H16V8H11V6M8,9V3H19V9A3,3 0 0,1 22,12V18H19V21H8V18H7V9H8M10,5V9H17V5H10M10,15V19H17V15H10M19,11A1,1 0 0,0 18,12A1,1 0 0,0 19,13A1,1 0 0,0 20,12A1,1 0 0,0 19,11M4,9H5A1,1 0 0,1 6,10V17A1,1 0 0,1 5,18H4A2,2 0 0,1 2,16V11A2,2 0 0,1 4,9Z" />
 								</svg>
 							</i>
-							<input type="tel" name="FaxNumber" id="FaxNumber" value="">
-							<label for="FaxNumber">Fax Number</label>
+							<input type="tel" name="fax" id="fax" value="">
+							<label for="fax">Fax Number</label>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE873;</i>
-							<input type="text" name="ServiceProductProvided" id="ServiceProductProvided" value="">
-							<label for="ServiceProductProvided">Description of service or product which is provided or made at your site</label>
+							<input type="text" name="productProvided" id="productProvided" value="">
+							<label for="productProvided">Description of service or product which is provided or made at your site</label>
 						</div>
 					</div>
 
 					<div class="row" id="radio">
 						<div class="input-field col s12">
 							<p>Should the student have a particular skill or interest?</p>
-							<input class="with-gap" type="radio" name="Skill" id="SkillYes" value="yes">
-							<label for="SkillYes">Yes</label>
-							<input class="with-gap" type="radio" name="Skill" id="SkillNo" value="no">
-							<label for="SkillNo">No</label>
+							<input class="with-gap" type="radio" name="skill" id="skillYes" value="yes">
+							<label for="skillYes">Yes</label>
+							<input class="with-gap" type="radio" name="skill" id="skillNo" value="no">
+							<label for="skillNo">No</label>
 						</div>
 					</div>
 
 					<div class="row" id="describe">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE873;</i>
-							<input type="text" name="SkillDescription" id="SkillDescription" rows="3" cols="20" value="">
-							<label for="SkillDescription">Please describe:</label>
+							<input type="text" name="skillSet" id="skillSet" rows="3" cols="20" value="">
+							<label for="skillSet">Please describe:</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE85D;</i>
-							<input type="text" name="Responsibilities1" id="Responsibilities1" rows="2" cols="20" value="">
-							<label for="Responsibilities">What responsibilities or tasks will the student undertake?</label>
+							<input type="text" name="responsibilities" id="responsibilities" rows="2" cols="20" value="">
+							<label for="responsibilities">What responsibilities or tasks will the student undertake?</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE8B5;</i>
-							<input type="text" name="Hours" id="Hours">
-							<label for="Hours">Hours of work avialable to student</label>
+							<input type="text" name="hours" id="hours">
+							<label for="hours">Hours of work avialable to student</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE8F9;</i>
-							<input type="text" name="DressCode" id="DressCode" value="">
-							<label for="DressCode">Dress Code for student</label>
+							<input type="text" name="dressCode" id="dressCode" value="">
+							<label for="dressCode">Dress Code for student</label>
 						</div>
 					</div>
 
@@ -187,8 +192,8 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE7EF;</i>
-							<input type="text" name="NumberMentor" id="NumberMentor">
-							<label for="NumberMentor">Number of students you are willing to mentor</label>
+							<input type="text" name="numberOfStudents" id="numberOfStudents">
+							<label for="numberOfStudents">Number of students you are willing to mentor</label>
 						</div>
 					</div>
 					
@@ -197,16 +202,29 @@
 							Submit
 						</button>
 					</div>
-
 				</form>
+			</div>
+
+			<div id="students" ng-controller="students">
+				
 			</div>
 		</main>
 
+		<footer class="hide-on-large-only">
+			<div class="footer-copyright">
+				<p class="left">&copy;2017, <a href="mailto: besrasal@gmail.com">Ben Salzberg</a></p>
+				<a class="right" href="http://madewithloveinbaltimore.org/" target="_blank">Made with <i class="material-icons">&#xE87D;</i> in Baltimore</a>
+			</div>
+		</footer>
+
 		<script src="/bower_components/jquery/dist/jquery.min.js" defer></script>
 		<script src="/bower_components/firebase/firebase.min.js" defer></script>
-		<!--<script type="text/javascript" src="JavaScript/Init_Firebase.js" defer></script>Initialize Firebase-->
-		<script type="text/javascript" src="/JavaScript/script.js" defer></script>
+		<!--<script type="text/javascript" src="/srcipts/Init_Firebase.js" defer></script>Initialize Firebase-->
+		<script type="text/javascript" src="/scripts/script.js" defer></script>
 		<script src="/bower_components/materialize/dist/js/materialize.min.js" defer></script>
+		<script type="text/javascript" src="/bower_components/angular/angular.min.js" defer></script>
+		<script type="text/javascript" src="/bower_components/angularfire/dist/angularfire.min.js" defer></script>
+		<script type="text/javascript" src="/scripts/ng.js" defer></script>
 	</body>	
 </html>
 
