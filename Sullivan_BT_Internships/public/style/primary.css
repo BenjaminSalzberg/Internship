@@ -5,7 +5,7 @@ html {
 body {
 	margin: 0;
 	height: 100%;
-	background: linear-gradient(#436ba0, #334e73);
+	/*background: linear-gradient(#436ba0, #334e73);*/
 }
 
 a:focus, button:focus {
@@ -140,6 +140,7 @@ ul.side-nav {
 main {
 	padding: 50px 0px 50px 300px;
 	height: 100%;
+	background: linear-gradient(#436ba0, #334e73);
 }
 
 main div#companies, main div#students {
@@ -155,6 +156,10 @@ main div#companies, main div#students {
 */
 main div#choose {
 	height: 100%;
+}
+
+main div#choose, main div#choose div.valign {
+	margin: 0;
 }
 
 main div#choose div.valign button.col {
@@ -299,7 +304,7 @@ footer a {
 	}
 }
 
-/* This is when the nav reduces from 64px to 56px high */
+/* Includes SMALL size; this is when the nav reduces from 64px to 56px high */
 @media screen and (max-width: 600px) {
 	nav img {
 		height: 50px;
@@ -314,6 +319,11 @@ footer a {
 	main {
 		height: calc(100% - 84px);
 	}
+
+	/*puts margin on top button to seperate between the two*/
+	main #choose .valign button#companies {
+		margin-bottom: 15px;
+	}
 }
 
 @media screen and (max-width: 450px) {
@@ -324,3 +334,10 @@ footer a {
 	}
 }
 
+/*fix selection on short screens - ex. iPhone 4*/
+@media screen and (max-height: 515px) {
+	main {
+		height: auto;
+		padding: 15px 0 15px 0;
+	}
+}
