@@ -140,10 +140,15 @@ ul.side-nav {
 main {
 	padding: 50px 0px 50px 300px;
 	height: 100%;
+	/* transition: height 2s; */
 	background: linear-gradient(#436ba0, #334e73);
 }
 
-main div#companies, main div#students {
+main.auto-height {
+	height: auto !important;
+}
+
+main div#companies, main div#students, main div#companies-submitted {
 	display: none;
 }
 
@@ -204,7 +209,7 @@ main div#choose div.valign button.col i {
 form {
 	background-color: #fcfcfc;
 	padding: 5px 15px;
-	border-radius: 2px;
+	border-radius: 3px;
 }
 
 form h4, form h6 {
@@ -271,9 +276,45 @@ button[type='submit'] {
 
 
 /*
- *****************
-   Media Queries
- *****************
+ ****************
+   Loading Page
+ ****************
+*/
+main div#companies-submitted, main div#companies-submitted div#loading {
+	height: 100%;
+}
+
+main div#companies-submitted {
+	background-color: #f8f8f8;
+	border-radius: 3px;
+}
+
+main div#companies-submitted .valign {
+	width: 100%;
+}
+
+main div#companies-submitted div#loading div.center {
+	height: auto;
+	width: 100%;
+}
+
+main div#companies-submitted div#loading div.center h5 {
+	margin-bottom: 20px;
+	margin-top: 0;
+	font-weight: 500;
+	color: #333;
+}
+
+main div#companies-submitted div#loading .spinner-layer {
+	border-color: #fabb46;
+}
+
+
+
+/*
+ ***********
+   Foooter
+ ***********
 */
 footer {
 	color: #f8f8f8;
@@ -300,6 +341,7 @@ footer a {
 @media screen and (max-width: 992px) {
 	main {
 		padding-left: initial;
+		min-height: calc(100% - 92px);
 		height: calc(100% - 92px);
 	}
 }
@@ -317,6 +359,8 @@ footer a {
 	}
 
 	main {
+		min-height: calc(100% - 84px);
+		padding: 35px 0;
 		height: calc(100% - 84px);
 	}
 
@@ -327,6 +371,10 @@ footer a {
 }
 
 @media screen and (max-width: 450px) {
+	main {
+		padding: 25px 0;
+	}
+
 	nav .brand-logo {
 		position: relative;
 		transform: none;
@@ -337,7 +385,6 @@ footer a {
 /*fix selection on short screens - ex. iPhone 4*/
 @media screen and (max-height: 515px) {
 	main {
-		height: auto;
-		padding: 15px 0 15px 0;
+		padding: 15px 0;
 	}
 }

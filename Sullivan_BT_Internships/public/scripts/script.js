@@ -8,6 +8,22 @@ const CONFIG = {
 };
 firebase.initializeApp(CONFIG);
 
+let mobile;
+$(document).ready(function() {	
+	checkWidth();
+});
+
+$(window).resize(function() {
+	checkWidth();
+});
+
+let checkWidth = function () {
+	if ($(window).width() <= 992) {
+		mobile = true;
+	} else {
+		mobile = false;
+	};
+};
 
 
 /*
@@ -17,22 +33,47 @@ firebase.initializeApp(CONFIG);
 */
 $("form").submit(function(event) {
 	event.preventDefault();
+
+	if (mobile) {
+		$("main div#companies").slideUp(800, function () {
+			$("main").css("height", "");
+			$("main div#companies-submitted").slideDown(600);
+		});
+	} else {
+		$("main").css("height", "");
+		$("main div#companies").slideUp(800, function () {
+			$("main div#companies-submitted").slideDown(600);
+		});
+	}
+
 	let form = this;
 	const JSON = ConvertFormToJSON(form);
 	
 	//validate (check validate() below)
 	if (!validate(JSON)) {
+		$("main div#companies-submitted #loading").slideUp(300, function () {
+			$("main div#companies").slideDown(1250);
+		});
+
 		alert("Please enter either an email, a phone number, or a fax number.");
 	} else {
 		//establishes database connection to the year/company name
-		let db = firebase.database().ref('/2017/companies').child(JSON.CompanyName).child('info');
+		let db = firebase.database().ref('2017').child('companies').child(JSON.companyName).child('info');
 		//send the json to database, then disable the inputs, and alert thank you message
 		db.set(JSON).then(function() {
 			$("input").attr('disabled', true);
 			alert("Thank you for submitting!");
+			$("main div#companies-submitted #loading").fadeOut(10, function () {
+				$("main div#companies-submitted #successful").fadeIn(300);
+			});
+
 		}) //if there is an error in writing to the database, this function is run:
 		.catch(function(e) {
-			alert("We are sorry, your submission could not be saved right now.");console.log("Firebase error:\n" + e)
+			console.error("Firebase error:\n" + e);
+
+			$("main div#companies-submitted #loading").fadeOut(10, function () {
+				$("main div#companies-submitted #failed").fadeIn(300);
+			});
 		});
 	};
 });
@@ -58,7 +99,7 @@ try {
 		return true;
 	};
 } catch (e) {
-	console.log("Error occurred during validation.");
+	console.error("Error occurred during validation.");
 }
 
 //shows description field in form when the yes button is selected,
@@ -150,6 +191,7 @@ $(document).ready(function () {
 
 //executes whenever the adrees changes
 //and when user presses back/forward button
-$(window).on('popstate', function () {
+$(window).on('popstate', function (event) {
+	event.preventDefault();
 	locChange();
 });
