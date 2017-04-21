@@ -118,7 +118,7 @@
 
 					<div class="row">
 						<h6 class="red-text text-darken-2">One of the following contact methods is required:</h6>
-						<div class="input-field col s12 m6 l4">
+						<div class="input-field col s12 m12 l4">
 							<i class="material-icons prefix">&#xE0BE;</i>
 							<input class="validate" type="email" name="email" id="email" value="">
 							<label for="email">Email Address</label>
@@ -145,7 +145,7 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE873;</i>
 							<input type="text" name="productProvided" id="productProvided" value="">
-							<label for="productProvided">Description of service or product which is provided or made at your site</label>
+							<label for="productProvided">Describe your service or product</label>
 						</div>
 					</div>
 
@@ -171,7 +171,7 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE85D;</i>
 							<input type="text" name="responsibilities" id="responsibilities" rows="2" cols="20" value="">
-							<label for="responsibilities">What responsibilities or tasks will the student undertake?</label>
+							<label for="responsibilities">Students' responsibilities or tasks</label>
 						</div>
 					</div>
 
@@ -179,7 +179,7 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE8B5;</i>
 							<input type="text" name="hours" id="hours">
-							<label for="hours">Hours of work avialable to student</label>
+							<label for="hours">Hours of work for student(s)</label>
 						</div>
 					</div>
 
@@ -187,7 +187,7 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE8F9;</i>
 							<input type="text" name="dressCode" id="dressCode" value="">
-							<label for="dressCode">Dress Code for student</label>
+							<label for="dressCode">Dress Code for student(s)</label>
 						</div>
 					</div>
 
@@ -209,9 +209,9 @@
 			</div>
 
 			<div id="companies-submitted" class=" container">
-				<div id="loading" class="valign-wrapper">
+				<div class="valign-wrapper">
 					<div class="valign">
-						<div class="center">
+						<div id="loading" class="center">
 							<h5 class="">Working...</h5>
 
 							<div class="preloader-wrapper big active">
@@ -225,6 +225,10 @@
 									</div>
 								</div>
 							</div>
+						</div>
+
+						<div id="success">
+							
 						</div>
 					</div>
 				</div>

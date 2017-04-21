@@ -148,7 +148,7 @@ main.auto-height {
 	height: auto !important;
 }
 
-main div#companies, main div#students, main div#companies-submitted {
+main div#companies, main div#students, main div#companies-submitted, main div#companies-submitted div#successful, main div#companies-submitted div#failed {
 	display: none;
 }
 
@@ -280,7 +280,7 @@ button[type='submit'] {
    Loading Page
  ****************
 */
-main div#companies-submitted, main div#companies-submitted div#loading {
+main div#companies-submitted, main div#companies-submitted div.valign-wrapper {
 	height: 100%;
 }
 
@@ -293,20 +293,20 @@ main div#companies-submitted .valign {
 	width: 100%;
 }
 
-main div#companies-submitted div#loading div.center {
+main div#companies-submitted div.valign-wrapper div.center {
 	height: auto;
 	width: 100%;
 }
 
-main div#companies-submitted div#loading div.center h5 {
+main div#companies-submitted div.valign-wrapper div.center h5 {
 	margin-bottom: 20px;
 	margin-top: 0;
 	font-weight: 500;
 	color: #333;
 }
 
-main div#companies-submitted div#loading .spinner-layer {
-	border-color: #fabb46;
+main div#companies-submitted div.valign-wrapper .spinner-layer {
+	border-color: #fdb93a;
 }
 
 
@@ -383,8 +383,12 @@ footer a {
 }
 
 /*fix selection on short screens - ex. iPhone 4*/
-@media screen and (max-height: 515px) {
+@media screen and (max-height: 531px) {
 	main {
 		padding: 15px 0;
+	}
+
+	main.submitted {
+		/* height: inherit; */
 	}
 }

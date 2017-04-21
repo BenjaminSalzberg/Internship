@@ -37,10 +37,12 @@ $("form").submit(function(event) {
 	if (mobile) {
 		$("main div#companies").slideUp(800, function () {
 			$("main").css("height", "");
+			$("main").addClass('submitted');
 			$("main div#companies-submitted").slideDown(600);
 		});
 	} else {
 		$("main").css("height", "");
+		$("main").addClass('submitted');
 		$("main div#companies").slideUp(800, function () {
 			$("main div#companies-submitted").slideDown(600);
 		});
@@ -51,8 +53,9 @@ $("form").submit(function(event) {
 	
 	//validate (check validate() below)
 	if (!validate(JSON)) {
-		$("main div#companies-submitted #loading").slideUp(300, function () {
+		$("main div#companies-submitted").slideUp(300, function () {
 			$("main div#companies").slideDown(1250);
+			$("main").removeClass('submitted');
 		});
 
 		alert("Please enter either an email, a phone number, or a fax number.");
@@ -62,17 +65,17 @@ $("form").submit(function(event) {
 		//send the json to database, then disable the inputs, and alert thank you message
 		db.set(JSON).then(function() {
 			$("input").attr('disabled', true);
-			alert("Thank you for submitting!");
-			$("main div#companies-submitted #loading").fadeOut(10, function () {
-				$("main div#companies-submitted #successful").fadeIn(300);
+			//alert("Thank you for submitting!");
+			$("main div#companies-submitted div#loading").fadeOut(10, function () {
+				$("main div#companies-submitted div#successful").fadeIn(300);
 			});
 
 		}) //if there is an error in writing to the database, this function is run:
 		.catch(function(e) {
 			console.error("Firebase error:\n" + e);
 
-			$("main div#companies-submitted #loading").fadeOut(10, function () {
-				$("main div#companies-submitted #failed").fadeIn(300);
+			$("main div#companies-submitted div#loading").fadeOut(10, function () {
+				$("main div#companies-submitted div#failed").fadeIn(300);
 			});
 		});
 	};
