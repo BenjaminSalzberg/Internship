@@ -111,7 +111,8 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE853;</i>
-							<input type="text" name="contactPerson" id="contactPerson" value="" required="true">
+							<!--<input type="text" name="contactPerson" id="contactPerson" value="" required="true">-->
+							<input type="text" name="contactPerson" id="contactPerson" value="">
 							<label for="contactPerson">Contact Person <span class="red-text text-darken-2">*</span></label>
 						</div>
 					</div>
@@ -227,8 +228,12 @@
 							</div>
 						</div>
 
-						<div id="success">
-							
+						<div id="success" class="center">
+							<h5>Success!</h5>
+							<h6>Thanks for participating! <br> We will be in contact with you shortly.</h6>
+							<div>
+								<i class="material-icons">&#xE5CA;</i>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -254,6 +259,7 @@
 		<script type="text/javascript" src="/bower_components/angular/angular.min.js" defer></script>
 		<script type="text/javascript" src="/bower_components/angularfire/dist/angularfire.min.js" defer></script>
 		<script type="text/javascript" src="/scripts/ng.js" defer></script>
+		<script type="text/javascript" src="/bower_components/jquery.easing/js/jquery.easing.min.js" defer></script>
 	</body>	
 </html>
 

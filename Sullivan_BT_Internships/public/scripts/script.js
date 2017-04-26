@@ -33,18 +33,32 @@ let checkWidth = function () {
 */
 $("form").submit(function(event) {
 	event.preventDefault();
+	
+	//variables to maintain proper timing for animations
+	let open = false;
+	let iShowing = false;
 
 	if (mobile) {
 		$("main div#companies").slideUp(800, function () {
 			$("main").css("height", "");
 			$("main").addClass('submitted');
-			$("main div#companies-submitted").slideDown(600);
+			$("main div#companies-submitted").slideDown(600, function () {
+				open = true;
+				if (!iShowing) {
+					$("main div#companies-submitted div.valign-wrapper div#success i").animate({width: "72px"}, 1000, "easeInCubic");
+				}
+			});
 		});
 	} else {
 		$("main").css("height", "");
 		$("main").addClass('submitted');
 		$("main div#companies").slideUp(800, function () {
-			$("main div#companies-submitted").slideDown(600);
+			$("main div#companies-submitted").slideDown(600, function () {
+				open = true;
+				if (!iShowing) {
+					$("main div#companies-submitted div.valign-wrapper div#success i").animate({width: "72px"}, 1000, "easeInCubic");
+				}
+			});
 		});
 	}
 
@@ -53,29 +67,30 @@ $("form").submit(function(event) {
 	
 	//validate (check validate() below)
 	if (!validate(JSON)) {
-		$("main div#companies-submitted").slideUp(300, function () {
-			$("main div#companies").slideDown(1250);
-			$("main").removeClass('submitted');
+		$("main div#companies-submitted div#loading").fadeOut(10, function () {
+			$("main div#companies-submitted div#missing").fadeIn(300);
 		});
 
 		alert("Please enter either an email, a phone number, or a fax number.");
 	} else {
 		//establishes database connection to the year/company name
 		let db = firebase.database().ref('2017').child('companies').child(JSON.companyName).child('info');
-		//send the json to database, then disable the inputs, and alert thank you message
+		//send the json to database, then display fitting message
 		db.set(JSON).then(function() {
-			$("input").attr('disabled', true);
-			//alert("Thank you for submitting!");
 			$("main div#companies-submitted div#loading").fadeOut(10, function () {
-				$("main div#companies-submitted div#successful").fadeIn(300);
+				$("main div#companies-submitted div#success").fadeIn(300, function () {
+					if (open) {
+						iShowing = true;
+						$("main div#companies-submitted div.valign-wrapper div#success i").animate({width: "72px"}, 1000, "easeInCubic");
+					}
+				});
 			});
-
 		}) //if there is an error in writing to the database, this function is run:
 		.catch(function(e) {
 			console.error("Firebase error:\n" + e);
 
 			$("main div#companies-submitted div#loading").fadeOut(10, function () {
-				$("main div#companies-submitted div#failed").fadeIn(300);
+				$("main div#companies-submitted div#error").fadeIn(300);
 			});
 		});
 	};

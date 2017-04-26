@@ -5,8 +5,10 @@
 
       "companies": {
         "$company": {
-          ".read": "true",
-          ".write": "!data.exists() || auth.uid === 'bv1j4n5YV2gT43LV2RLTKUSt13K2' || auth.uid === 'BgupKS6BzmVffIdLqggWeOhtK9G2'"
+          "info": {
+            ".write": "!data.exists() || auth.uid === 'bv1j4n5YV2gT43LV2RLTKUSt13K2' || auth.uid === 'BgupKS6BzmVffIdLqggWeOhtK9G2'",
+            ".validate": "newData.child('companyName').val().length > 0 && newData.child('contactPerson').val().length > 0 && (newData.child('phone').val().length > 0 || newData.child('fax').val().length > 0 || newData.child('email').val().length > 0)"
+          }
         }
       },
 
