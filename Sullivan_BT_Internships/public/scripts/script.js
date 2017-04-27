@@ -33,7 +33,20 @@ let checkWidth = function () {
 */
 $("form").submit(function(event) {
 	event.preventDefault();
-	
+
+	//validate (check validate() below)
+	if (!validate(JSON)) {
+		$("main div#companies-submitted div#loading").fadeOut(10, function () {
+			$("main div#companies-submitted div#missing").fadeIn(300, function () {
+				$("main div#companies-submitted div.valign-wrapper div#warning i").animate({height: "72.22px"}, 1000, "easeInCubic");
+				window.setTimeout(function () {
+					$("main div#companies-submitted div.valign-wrapper div#warning button").slideDown();
+				}, 1680);
+			});
+		});
+		return;
+	}
+
 	//variables to maintain proper timing for animations
 	let open = false;
 	let iShowing = false;
@@ -65,35 +78,26 @@ $("form").submit(function(event) {
 	let form = this;
 	const JSON = ConvertFormToJSON(form);
 	
-	//validate (check validate() below)
-	if (!validate(JSON)) {
+	//establishes database connection to the year/company name
+	let db = firebase.database().ref('2017').child('companies').child(JSON.companyName).child('info');
+	//send the json to database, then display fitting message
+	db.set(JSON).then(function() {
 		$("main div#companies-submitted div#loading").fadeOut(10, function () {
-			$("main div#companies-submitted div#missing").fadeIn(300);
-		});
-
-		alert("Please enter either an email, a phone number, or a fax number.");
-	} else {
-		//establishes database connection to the year/company name
-		let db = firebase.database().ref('2017').child('companies').child(JSON.companyName).child('info');
-		//send the json to database, then display fitting message
-		db.set(JSON).then(function() {
-			$("main div#companies-submitted div#loading").fadeOut(10, function () {
-				$("main div#companies-submitted div#success").fadeIn(300, function () {
-					if (open) {
-						iShowing = true;
-						$("main div#companies-submitted div.valign-wrapper div#success i").animate({width: "72px"}, 1000, "easeInCubic");
-					}
-				});
-			});
-		}) //if there is an error in writing to the database, this function is run:
-		.catch(function(e) {
-			console.error("Firebase error:\n" + e);
-
-			$("main div#companies-submitted div#loading").fadeOut(10, function () {
-				$("main div#companies-submitted div#error").fadeIn(300);
+			$("main div#companies-submitted div#success").fadeIn(300, function () {
+				if (open) {
+					iShowing = true;
+					$("main div#companies-submitted div.valign-wrapper div#success i").animate({width: "72px"}, 1000, "easeInCubic");
+				}
 			});
 		});
-	};
+	}) //if there is an error in writing to the database, this function is run:
+	.catch(function(e) {
+		console.error("Firebase error:\n" + e);
+
+		$("main div#companies-submitted div#loading").fadeOut(10, function () {
+			$("main div#companies-submitted div#failed").fadeIn(300);
+		});
+	});
 });
 
 //makes the form data a json object, with the keys being the element names, and the values being the element values
@@ -109,16 +113,16 @@ function ConvertFormToJSON(form){
 };
 
 //checks that either the email, phone#, or fax# have been filled in
-try {
-	function validate (json) {
+function validate (json) {
+	try {
 		if (!json.email && !json.phone && !json.fax) {
 			return false;
 		}
 		return true;
-	};
-} catch (e) {
-	console.error("Error occurred during validation.");
-}
+	} catch (e) {
+		console.error("Error occurred during validation.");
+	}
+};
 
 //shows description field in form when the yes button is selected,
 //and hides it when yes isn't selected

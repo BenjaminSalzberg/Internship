@@ -311,41 +311,61 @@ main div#companies-submitted div.valign-wrapper .spinner-layer {
 	transition: color 1s;
 }
 
-
-
-/*
- *******************
-   Success Message
- *******************
-*/
-main div#companies-submitted div.valign-wrapper div#success {
+main div#companies-submitted div.valign-wrapper div#success, main div#companies-submitted div.valign-wrapper div#warning, main div#companies-submitted div.valign-wrapper div#failed  {
 	display: none;
 }
 
-main div#companies-submitted div.valign-wrapper div#success h5 {
-	font-size: 1.8rem;
+
+
+/*
+ **********
+   Shared
+ **********
+*/
+main div#companies-submitted div.valign-wrapper div.center h5 {
+	font-size: 2rem;
 	font-weight: 500;
-	margin-bottom: .7rem;
+	margin-bottom: 0.7rem;
 }
 
-main div#companies-submitted div.valign-wrapper div#success h6 {
-	line-height: 1.5;	
-	font-size: 1.025rem;
+main div#companies-submitted div.valign-wrapper div.center h6 {
+	line-height: 1.5;
+	font-size: 1.2rem;
+	font-weight: 400;
+	width: 100%;
+	padding: 0 5px;
 }
 
-main div#companies-submitted div.valign-wrapper div#success div {
+main div#companies-submitted div.valign-wrapper div.center div.icon {
 	width: 72px;
 	height: 72.22px;
 	margin: auto;
 }
 
-main div#companies-submitted div.valign-wrapper div#success i {
+main div#companies-submitted div.valign-wrapper i {
 	font-size: 72px;
 	overflow: hidden;
-	width: 0;
 	display: block;
-	color: #139507;
 }
+
+/* Success Message - Green Check */
+main div#companies-submitted div.valign-wrapper div#success i {
+	color: #12ad03;
+	width: 0;
+}
+
+/* Warning Message - Amber Exclamation */
+main div#companies-submitted div.valign-wrapper div#warning i {
+	color: #ff8f00;
+	height: 0;
+	width: 72px;
+}
+
+/* Failed Message - Red Exclamation */
+main div#companies-submitted div.valign-wrapper div#failed i {
+	color: #F44336;
+}
+
 
 
 
@@ -358,7 +378,7 @@ footer {
 	color: #f8f8f8;
 	background-color: #20344e;
 	height: 28px;
-	padding: 3px 7.5px 4px 7.5px;
+	padding: 4px 7.5px 3.5px 7.5px;
 }
 
 footer .left, footer .right {
