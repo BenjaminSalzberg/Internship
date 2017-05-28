@@ -13,7 +13,7 @@
 	}]);
 
 	app.controller('students', ['$scope', function ($scope) {
-		$scope.msg = 'heloo';
+		$scope.msg = 'hello';
 	}]);
 
 
