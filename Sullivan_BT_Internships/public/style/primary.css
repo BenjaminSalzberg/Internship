@@ -220,6 +220,10 @@ form .row h6 {
 	margin-left: 14px;
 }
 
+.input-field input {
+	margin-bottom: 2.5px;
+}
+
 /* these selectors select the input icons, labels, and underlines */
 .input-field input:focus + label, .input-field textarea:focus + label, .input-field .prefix.active, .input-field input[type=radio]:checked+label {
 	color: #f3c36b !important;
@@ -361,9 +365,36 @@ main div#companies-submitted div.valign-wrapper div#warning i {
 	width: 72px;
 }
 
+main div#companies-submitted div.valign-wrapper div#warning button.return {
+	background-color: #ff8f00;
+}
+
 /* Failed Message - Red Exclamation */
 main div#companies-submitted div.valign-wrapper div#failed i {
-	color: #F44336;
+	color: #f44336;
+}
+
+main div#companies-submitted div.valign-wrapper div#failed button.return {
+	background-color: #f44336;
+}
+
+main div#companies-submitted div.valign-wrapper button.return {
+	color: #f8f8f8;
+	height: 42.5px;
+	padding: 0 40px;
+	margin-top: 5px;
+	line-height: 42.5px;
+}
+
+
+
+/*
+ ****************
+   Student Page
+ ****************
+*/
+.collapsible {
+	margin: 0 auto;
 }
 
 
@@ -441,7 +472,7 @@ footer a {
 }
 
 /*fix selection on short screens - ex. iPhone 4*/
-@media screen and (max-height: 531px) {
+@media screen and (max-height: 531px) and (max-width: 1000px) {
 	main {
 		padding: 15px 0;
 	}

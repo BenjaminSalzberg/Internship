@@ -28,7 +28,7 @@
 		<meta property="og:image" content="/img/bt_logo_circle.png"/>
 		
 		<link rel="stylesheet" href="/bower_components/materialize/dist/css/materialize.min.css" async>
-		<link rel="stylesheet" href="/style/primary.css" async>
+		<link rel="stylesheet" href="/style/primary.min.css" async>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<body>
@@ -95,14 +95,14 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE894;</i>
-							<input type="url" class="validate" name="website" id="website" value="">
+							<input type="url" name="website" id="website" value="">
 							<label for="website">Company Website</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">&#xE89B;</i>
+							<i class="material-icons prefix">&#xE0C8;</i>
 							<input type="text" name="address" id="address" value="">
 							<label for="address">Company Address</label>
 						</div>
@@ -112,33 +112,23 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">&#xE853;</i>
 							<!--<input type="text" name="contactPerson" id="contactPerson" value="" required="true">-->
-							<input type="text" name="contactPerson" id="contactPerson" value="">
+							<input type="text" name="contactPerson" id="contactPerson" value="" required="true">
 							<label for="contactPerson">Contact Person <span class="red-text text-darken-2">*</span></label>
 						</div>
 					</div>
 
 					<div class="row">
 						<h6 class="red-text text-darken-2">One of the following contact methods is required:</h6>
-						<div class="input-field col s12 m12 l4">
+						<div class="input-field col s12 m6">
 							<i class="material-icons prefix">&#xE0BE;</i>
 							<input class="validate" type="email" name="email" id="email" value="">
 							<label for="email">Email Address</label>
 						</div>
 
-						<div class="input-field col s12 m6 l4">
+						<div class="input-field col s12 m6">
 							<i class="material-icons prefix">&#xE0B0;</i>
 							<input type="tel" name="phone" id="phone" value="" >
 							<label for="phone">Phone Number</label>
-						</div>
-
-						<div class="input-field col s12 m6 l4">
-							<i class="material-icons prefix">
-								<svg style="width:30px;height:30px" viewBox="0 0 24 24">
-									<path fill="#000000" d="M11,6H16V8H11V6M8,9V3H19V9A3,3 0 0,1 22,12V18H19V21H8V18H7V9H8M10,5V9H17V5H10M10,15V19H17V15H10M19,11A1,1 0 0,0 18,12A1,1 0 0,0 19,13A1,1 0 0,0 20,12A1,1 0 0,0 19,11M4,9H5A1,1 0 0,1 6,10V17A1,1 0 0,1 5,18H4A2,2 0 0,1 2,16V11A2,2 0 0,1 4,9Z" />
-								</svg>
-							</i>
-							<input type="tel" name="fax" id="fax" value="">
-							<label for="fax">Fax Number</label>
 						</div>
 					</div>
 					
@@ -209,7 +199,7 @@
 				</form>
 			</div>
 
-			<div id="companies-submitted" class=" container">
+			<div id="companies-submitted" class="container">
 				<div class="valign-wrapper">
 					<div class="valign">
 						<div id="loading" class="center">
@@ -229,7 +219,7 @@
 						</div>
 
 						<div id="success" class="center">
-							<h5>Error</h5>
+							<h5>Success!</h5>
 							<h6>Thanks for participating! <br> We will be in contact with you shortly.</h6>
 							<div class="icon">
 								<i class="material-icons">&#xE5CA;</i>
@@ -242,6 +232,7 @@
 							<div class="icon">
 								<i class="material-icons">&#xE002;</i>
 							</div>
+							<button class="btn btn-large return waves-effect waves-light">Close</button>
 						</div>
 
 						<div id="failed" class="center">
@@ -250,13 +241,19 @@
 							<div class="icon">
 								<i class="material-icons">&#xE000;</i>
 							</div>
+							<button class="btn btn-large return waves-effect waves-light">Close</button>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div id="students" ng-controller="students">
-				
+				<ul class="container collapsible" data-collapsible="accordion">
+					<li ng-repeat="company in companies">
+						<div class="collapsible-header" ng-bind="::company.$id"></div>
+						<div class="collapsible-body"><span ng-bind="::company.EMail"></span></div>
+					</li>
+				</ul>
 			</div>
 		</main>
 

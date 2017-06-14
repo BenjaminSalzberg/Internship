@@ -1,23 +1,18 @@
 /*
- *******************
-   Students' Login
- *******************
+ *********************
+   List of Companies
+ *********************
 */
-//let ng = function () {
-	var app = angular.module("internships", [
-		"firebase"
-	]);
+var app = angular.module("internships", [
+	"firebase"
+]);
 
-	app.factory("Auth", ["$firebaseAuth", function ($firebaseAuth) {
-		return $firebaseAuth();
-	}]);
+app.factory("Auth", ["$firebaseAuth", function ($firebaseAuth) {
+	return $firebaseAuth();
+}]);
 
-	app.controller('students', ['$scope', function ($scope) {
-		$scope.msg = 'hello';
-	}]);
-
-
-	$("main div#students form#login").submit(function(event) {
-
-	});
-//};
+app.controller('students', ['$scope', '$firebaseArray', function ($scope, $firebaseArray) {
+	var arrayRef = db.ref('2017');
+	$scope.companies = $firebaseArray(arrayRef);
+	//console.log($scope.companies);
+}]);

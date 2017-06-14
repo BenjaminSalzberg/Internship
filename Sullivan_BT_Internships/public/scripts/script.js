@@ -7,6 +7,7 @@ const CONFIG = {
 	messagingSenderId: "367923136332"
 };
 firebase.initializeApp(CONFIG);
+var db = firebase.database();
 
 let mobile;
 $(document).ready(function() {	
@@ -34,10 +35,38 @@ let checkWidth = function () {
 $("form").submit(function(event) {
 	event.preventDefault();
 
-	//validate (check validate() below)
-	if (!validate(JSON)) {
+	//variables to maintain proper timing for animations
+	let open = false;
+	let iShowing = false;
+
+	if (mobile) {
+		$("main div#companies").slideUp(800, function () {
+			$("main").css("height", "").addClass('submitted');
+			$("main div#companies-submitted").slideDown(600, function () {
+				open = true;
+				if (!iShowing) {
+					$("main div#companies-submitted div.valign-wrapper div#success i").animate({width: "72px"}, 1000, "easeInCubic");
+				}
+			});
+		});
+	} else {
+		$("main").css("height", "").addClass('submitted');
+		$("main div#companies").slideUp(800, function () {
+			$("main div#companies-submitted").slideDown(600, function () {
+				open = true;
+				if (!iShowing) {
+					$("main div#companies-submitted div.valign-wrapper div#success i").animate({width: "72px"}, 1000, "easeInCubic");
+				}
+			});
+		});
+	}
+
+	const DATA = ConvertFormToJSON(this);
+
+	//validate (see validate() below)
+	if (!validate(DATA)) {
 		$("main div#companies-submitted div#loading").fadeOut(10, function () {
-			$("main div#companies-submitted div#missing").fadeIn(300, function () {
+			$("main div#companies-submitted div#warning").fadeIn(300, function () {
 				$("main div#companies-submitted div.valign-wrapper div#warning i").animate({height: "72.22px"}, 1000, "easeInCubic");
 				window.setTimeout(function () {
 					$("main div#companies-submitted div.valign-wrapper div#warning button").slideDown();
@@ -47,41 +76,12 @@ $("form").submit(function(event) {
 		return;
 	}
 
-	//variables to maintain proper timing for animations
-	let open = false;
-	let iShowing = false;
-
-	if (mobile) {
-		$("main div#companies").slideUp(800, function () {
-			$("main").css("height", "");
-			$("main").addClass('submitted');
-			$("main div#companies-submitted").slideDown(600, function () {
-				open = true;
-				if (!iShowing) {
-					$("main div#companies-submitted div.valign-wrapper div#success i").animate({width: "72px"}, 1000, "easeInCubic");
-				}
-			});
-		});
-	} else {
-		$("main").css("height", "");
-		$("main").addClass('submitted');
-		$("main div#companies").slideUp(800, function () {
-			$("main div#companies-submitted").slideDown(600, function () {
-				open = true;
-				if (!iShowing) {
-					$("main div#companies-submitted div.valign-wrapper div#success i").animate({width: "72px"}, 1000, "easeInCubic");
-				}
-			});
-		});
-	}
-
-	let form = this;
-	const JSON = ConvertFormToJSON(form);
 	
 	//establishes database connection to the year/company name
-	let db = firebase.database().ref('2017').child('companies').child(JSON.companyName).child('info');
+	let companyRef = db.ref('2017').child(DATA.companyName);
 	//send the json to database, then display fitting message
-	db.set(JSON).then(function() {
+	console.log(DATA);
+	companyRef.set(DATA).then(function() {
 		$("main div#companies-submitted div#loading").fadeOut(10, function () {
 			$("main div#companies-submitted div#success").fadeIn(300, function () {
 				if (open) {
@@ -100,6 +100,20 @@ $("form").submit(function(event) {
 	});
 });
 
+//handler for button to return to form
+$("button.return").click(function(e) {
+	e.preventDefault();
+
+	$("main div#companies-submitted").slideUp(800, function () {
+		open = false;
+		$("main div#companies").slideDown(600, function () {
+			$("main").css("height", "auto").removeClass('submitted');
+		});
+		$("main div#companies-submitted div.valign-wrapper div#success, main div#companies-submitted div.valign-wrapper div#warning, main div#companies-submitted div.valign-wrapper div#failed").hide();
+		$("main div#companies-submitted div.valign-wrapper div#loading").css('display', 'block');
+	});
+});
+
 //makes the form data a json object, with the keys being the element names, and the values being the element values
 function ConvertFormToJSON(form){
 	let array = jQuery(form).serializeArray();
@@ -112,10 +126,10 @@ function ConvertFormToJSON(form){
 	return json;
 };
 
-//checks that either the email, phone#, or fax# have been filled in
+//checks that either the email or phone# has been filled in
 function validate (json) {
 	try {
-		if (!json.email && !json.phone && !json.fax) {
+		if (!json.email && !json.phone) {
 			return false;
 		}
 		return true;
@@ -175,6 +189,7 @@ let navigate = function (target) {
 			//sets main height to auto for background
 			//$("main").css('height', 'auto');
 			$("main div#students").fadeIn(300);
+			$('.collapsible').collapsible();
 		});
 
 		/*if (!loaded) {
